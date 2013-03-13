@@ -15,24 +15,16 @@ import com.fuehrmann.executivesuit.QuizMaster.Job;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.graphics.Color;
-import android.graphics.PorterDuff.Mode;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 public class BeforeInterviewActivity extends Activity {
 	
-	private LinearLayout ownLayout;
 	private QuizMaster quizMaster;
 	
-	@SuppressWarnings("rawtypes")
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

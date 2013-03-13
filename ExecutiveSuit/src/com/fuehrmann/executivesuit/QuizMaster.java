@@ -3,10 +3,8 @@ package com.fuehrmann.executivesuit;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fuehrmann.executivesuit.QuestionParser.EconomyScreen;
 import com.fuehrmann.executivesuit.QuestionParser.GameScreen;
 import com.fuehrmann.executivesuit.QuestionParser.Question;
-import com.fuehrmann.executivesuit.QuestionParser.SingleTextViewScreen;
 
 public class QuizMaster {
 
