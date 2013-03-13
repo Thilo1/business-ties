@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/CornflowerBlue"
+    android:id="@+id/mcfive">
+    
+    <TextView android:layout_width="match_parent"
+        		android:layout_height="0dp"
+        		android:layout_weight="3"
+        		android:gravity="center"
+        		android:textSize="14dp"
+        		android:id="@+id/question"
+        		android:textColor="@color/WhiteSmoke"/>
+    
+    <Button android:layout_width="match_parent"
+        	android:id="@+id/answer1"
+        	android:layout_height="0dp"
+        	android:layout_weight="1"
+        	android:textSize="14dp"
+        	android:textColor="@color/WhiteSmoke"
+        	android:onClick="answer"/>
+    
+    <Button android:layout_width="match_parent"
+        	android:id="@+id/answer2"
+        	android:layout_height="0dp"
+        	android:layout_weight="1"
+        	android:textSize="14dp"
+        	android:textColor="@color/WhiteSmoke"
+        	android:onClick="answer"/>
+    
+    <Button android:layout_width="match_parent"
+        	android:id="@+id/answer3"
+        	android:layout_height="0dp"
+        	android:layout_weight="1"
+        	android:textSize="14dp"
+        	android:textColor="@color/WhiteSmoke"
+        	android:onClick="answer"/>
+    
+    <Button android:layout_width="match_parent"
+        	android:id="@+id/answer4"
+        	android:layout_height="0dp"
+        	android:layout_weight="1"
+        	android:textSize="14dp"
+        	android:textColor="@color/WhiteSmoke"
+        	android:onClick="answer"/>
+    
+    <Button android:layout_width="match_parent"
+        	android:id="@+id/answer5"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="14dp"
+            android:textColor="@color/WhiteSmoke"
+            android:onClick="answer"/>
+
+</LinearLayout>

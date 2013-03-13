@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">ExecutiveSuit</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <!-- Jetzt kommen selbst deklarierte Strings \u00A0 -->
+    <string name="text_businessworld">B U S I N E S S \u000A T I E S</string>
+    <string name="text_copyright">\u00A9 2012 Stenzel \u0026 Führmann </string>
+    <string name="skyline_description">Hier soll eine Skyline oder ein ähnliches Bild erscheinen um die Assoziation zur Finanz/Business/Management -Welt herzustellen</string>
+    <string name="button_continue">continue</string>
+    <string name="title_activity_display_message">MyMessage</string>
+    <string name="title_activity_before_interview">The Company</string>
+	<string name="text_welcome">Welcome to \u000A Nerdy Computer Systems Corporation.</string>
+	<string name="Intro">The Nerdy Computer Systems Corporation Building is impressive. You walk into the Foyer and go to the Reception Lady. \u000A
+	    She welcomes and guides you to the Personnels Office.</string>
+	<string name="button_job1">Platzhalter Babidudub</string>
+	<string name="button_job2">Platzhalter Babidudub</string>
+	<string name="button_job3">Platzhalter Babidudub</string>
+	<string name="button_job4">Platzhalter Babidudub</string>
+	<string name="button_job5">Platzhalter Babidudub</string>
+	<string name="button_job6">Platzhalter Babidudub</string>
+	<string name="background">@color/Black</string>
+</resources>

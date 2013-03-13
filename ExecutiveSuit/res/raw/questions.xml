@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<game>
+    <question>
+        <qtext>It\'s good to see you made it. Please take a seat and make yourself comfortable. Do you want some coffee? Yes? Ok then. I want to ask you some questions to your personal backround. What is your name?</qtext>
+        <choice>
+            <ctext/>
+            <story>That's a nice name.</story>
+            <rank>0</rank>
+            <memory/>
+        </choice>
+        <hint>Thilo</hint>
+        <typeid>1</typeid>
+        <level>0</level>
+        <number>1</number>
+    </question>
+    <question>
+        <qtext>What kind of qualification do you have?</qtext>
+        <choice>
+            <ctext>Private University.</ctext>
+            <story>I'm positive surprised to hear this. That's generally an advantage in our business area.</story>
+            <rank>1</rank>
+            <memory>private</memory>
+        </choice>
+        <choice>
+            <ctext>State University.</ctext>
+            <story>That's a solid qualification. We have many job-opportunities for you.</story>
+            <rank>1</rank>
+            <memory>state</memory>
+        </choice>
+        <choice>
+            <ctext>Apprenticeship.</ctext>
+            <story>This lets me think that you're a pratical type of person. The Nerdy Computer Systems Corporation likes this.</story>
+            <rank>2</rank>
+            <memory>apprentice</memory>
+        </choice>
+        <choice>
+            <ctext>Went to university but did not finish.</ctext>
+            <story>Generally, this is no problem. We have job-opportunities for university dropouts as well.</story>
+            <rank>3</rank>
+            <memory>dropout</memory>
+        </choice>
+        <choice>
+            <ctext>I am self-educator.</ctext>
+            <story>This is really interesting. The Nerdy Computer Systems Corporation likes self-reliantness.</story>
+            <rank>3</rank>
+            <memory>self</memory>
+        </choice>
+        <hint/>
+        <typeid>5</typeid>
+        <level>0</level>
+        <number>2</number>
+    </question>
+    <question>
+        <qtext>What was your main field?</qtext>
+        <choice>
+            <ctext>MMORPG.</ctext>
+            <story>Hm. So you might feel comfortable with a PC-workplace.</story>
+            <rank>3</rank>
+            <memory>mmorpg</memory>
+        </choice>
+        <choice>
+            <ctext>Business.</ctext>
+            <story>Good. Business know-how is very important in our company.</story>
+            <rank>1</rank>
+            <memory>business</memory>
+        </choice>
+        <choice>
+            <ctext>Sports.</ctext>
+            <story>Ok. Endurance and willpower can be key success factor in the business world.</story>
+            <rank>2</rank>
+            <memory>sports</memory>
+        </choice>
+        <choice>
+            <ctext>Technical.</ctext>
+            <story>Excellent. Technically skilled people is just what we need.</story>
+            <rank>1</rank>
+            <memory>technical</memory>
+        </choice>
+        <choice>
+            <ctext>Partying.</ctext>
+            <story>Oh. So i will check if the Public Relations Department has vacant positions.</story>
+            <rank>3</rank>
+            <memory>partying</memory>
+        </choice>
+        <hint/>
+        <typeid>5</typeid>
+        <level>0</level>
+        <number>3</number>
+    </question>
+    <question>
+        <qtext>What did you do at the side?</qtext>
+        <choice>
+            <ctext>I competed at local sportevents and made a lot of friends.</ctext>
+            <story>This is a good way to learn how to relate to people and gain confidence.</story>
+            <rank>2</rank>
+            <memory>sportevents</memory>
+        </choice>
+        <choice>
+            <ctext>I wrote software for a multinational company.</ctext>
+            <story>This is impressive and shows that you dont waste your time.</story>
+            <rank>1</rank>
+            <memory>software</memory>
+        </choice>
+        <choice>
+            <ctext>Learned Klingon.</ctext>
+            <story>This is a remarkable talent. Maybe we have something for you on the bridge.</story>
+            <rank>3</rank>
+            <memory>klingon</memory>
+        </choice>
+        <choice>
+            <ctext>I organized events for the students commitee.</ctext>
+            <story>Good. Organizing is a complex task an not easy to learn.</story>
+            <rank>1</rank>
+            <memory>organizing</memory>
+        </choice>
+        <choice>
+            <ctext>Made alot of friends through social-networking.</ctext>
+            <story>Good thing. Maintaining relationships is exact what the PR-Department does.</story>
+            <rank>3</rank>
+            <memory>networking</memory>
+        </choice>
+        <hint/>
+        <typeid>5</typeid>
+        <level>0</level>
+        <number>4</number>
+    </question>
+    <question>
+        <qtext>What was the most important thing to you during this time?</qtext>
+        <choice>
+            <ctext>To graduate with honors.</ctext>
+            <story>This reinforces your strong backround.</story>
+            <rank>1</rank>
+            <memory>honors</memory>
+        </choice>
+        <choice>
+            <ctext>To learn a lot.</ctext>
+            <story>One never stops learning.</story>
+            <rank>1</rank>
+            <memory>learning</memory>
+        </choice>
+        <choice>
+            <ctext>Virginity.</ctext>
+            <story>I feel sorry for you.</story>
+            <rank>3</rank>
+            <memory>virginity</memory>
+        </choice>
+        <choice>
+            <ctext>My Body-Mass-Index.</ctext>
+            <story>Ok, i see.</story>
+            <rank>3</rank>
+            <memory>bmi</memory>
+        </choice>
+        <choice>
+            <ctext>The Bro-Code.</ctext>
+            <story>(Brofist.)</story>
+            <rank>2</rank>
+            <memory>bro</memory>
+        </choice>
+        <hint/>
+        <typeid>5</typeid>
+        <level>0</level>
+        <number>5</number>
+    </question>
+    
+    <SingleTextViewScreen>
+        <TextViewText>There is no question, Thilo, you make an impressive applicant. Let's see what entry level positions NCSC might have available for you.</TextViewText>
+    </SingleTextViewScreen>
+    
+    <EconomyScreen>
+        <TextViewText>The economy is $$$$ at the moment</TextViewText>
+        <Image></Image>
+        <Button></Button>
+    </EconomyScreen>
+    
+    <PerformanceReviewScreen>
+        <TextViewText>The economy is $$$$ at the moment. Given this economy and your background, you may apply for the following entry level positions:</TextViewText>
+    </PerformanceReviewScreen>
+    
+    <SingleTextViewScreen>
+        <TextViewText>Congratulations, Thilo!. You have the job of Customer Service Clerk. The Following came in your morning email.</TextViewText>
+    </SingleTextViewScreen>
+    
+    <JobDescriptionScreen>
+        <TextView>Employee Status Change Form. Nerdy Computer Systems Corporation.</TextView>
+        <EmployeeInfo>></EmployeeInfo>
+        <JobInfo></JobInfo>
+    </JobDescriptionScreen>
+    
+    <question>
+        <qtext>Christmas time has arrived. NCS Staff is preparing for a big X-Mas-Event. A colleague proposes to add a “little extra” to the bowl at tonight´s event. He gives you a bottle Single Malt Whisky. Do you...</qtext>
+        <choice>
+            <ctext>Take the bottle and inform your supervisor.</ctext>
+            <story>Your colleague gets a written warning and doesn´t talk to you anymore. Your supervisor ist pleased. You sit alone at your table during the evening.</story>
+            <rank>1</rank>
+            <memory>...being loyal to the company.</memory>
+        </choice>
+        <choice>
+            <ctext>Take the bottle and “improve” the punch bowl....</ctext>
+            <story>The party gets a little out of hand. Everybody´s having a great time. Your colleague thinks you´re a cool guy. On the next morning, you can´t remember much, but you see the pictures on facebook.</story>
+            <rank>2</rank>
+            <memory>...good relations with other staff members</memory>
+        </choice>
+        <choice>
+            <ctext>Reject to take the bottle.</ctext>
+            <story>Your colleague thinks you´re a boring person. So is tonight´s event..</story>
+            <rank>3</rank>
+            <memory>...being boring.</memory>
+        </choice>
+        <hint/>
+        <typeid>3</typeid>
+        <level>2</level>
+        <number>1</number>
+    </question>
+</game>
