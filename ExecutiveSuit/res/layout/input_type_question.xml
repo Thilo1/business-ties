@@ -3,9 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/CornflowerBlue">
+    android:background="@string/background_color">
 
     <TextView android:layout_width="fill_parent"
+        	  android:textIsSelectable="false"
         	  android:layout_height="0dp"
         	  android:layout_weight="7"
         	  android:id="@+id/question_name"        		
@@ -13,12 +14,13 @@
         	  android:textStyle="bold"
         	  android:typeface="serif"
         	  android:gravity="center"
-        	  android:textColor="@color/WhiteSmoke"/>
+        	  android:textColor="@string/text_color"/>
     
      <EditText android:layout_width="match_parent"
+         	   android:inputType="text"
         	   android:layout_height="0dp"
         	   android:id="@+id/text_put_name"
-        	   android:textColor="@color/WhiteSmoke"
+        	   android:textColor="@string/text_color"
         	   android:layout_weight="3"
         	   android:gravity="center"/>
 
@@ -28,6 +30,7 @@
         	 android:textSize="14sp"
         	 android:text="@string/button_continue"
         	 android:onClick="answer"
-        	 android:id="@+id/button_continue"/>
+        	 android:id="@+id/button_continue"
+        	 android:textColor="@string/text_color"/>
 
 </LinearLayout>

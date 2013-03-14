@@ -8,22 +8,25 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import com.fuehrmann.executivesuit.QuestionParser.EconomyScreen;
 import com.fuehrmann.executivesuit.QuestionParser.GameScreen;
-import com.fuehrmann.executivesuit.QuestionParser.PerformanceReviewScreen;
 import com.fuehrmann.executivesuit.QuestionParser.Question;
 import com.fuehrmann.executivesuit.QuestionParser.SingleTextViewScreen;
 import com.fuehrmann.executivesuit.QuizMaster.Job;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
 import android.widget.TextView;
 
 public class BeforeInterviewActivity extends Activity {
 	
+	
 	private QuizMaster quizMaster;
+	
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -154,7 +157,8 @@ public class BeforeInterviewActivity extends Activity {
     	updateView();
     }
     
-    @TargetApi(11)
+    @SuppressLint("CutPasteId")
+	@TargetApi(11)
 	private void updateView(){
     	
     	String text;
@@ -175,7 +179,7 @@ public class BeforeInterviewActivity extends Activity {
     	}
     	
     	//Wenn ein Game Screen dran ist
-    	System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>> GAME_SCREEN ID: " + quizMaster.getCurrentGameScreen().getTypeid());
+    	System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>  GAME_SCREEN: " + quizMaster.getCurrentGameScreen().getTypeid());
 		switch (quizMaster.getCurrentGameScreen().getTypeid()){
 		
 								case GameScreen.TYPE_INPUT:
@@ -216,47 +220,44 @@ public class BeforeInterviewActivity extends Activity {
 									
 							   case GameScreen.SINGLE_TEXT_VIEW_SCREEN:
 								    setContentView(R.layout.story_screen);
-								    text = ((SingleTextViewScreen) quizMaster.getCurrentGameScreen()).getSingleTextViewText();
+								    text =  quizMaster.getCurrentGameScreen().getTextViewText();
 								    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> SINGLE TEXT VIEW SCREEN"+text);
 								    the_textView = (TextView) findViewById(R.id.question_name);
 						    		the_textView.setText(text);
 									break;
 									
 							   case GameScreen.ECONOMY_SCREEN:
-								    System.out.println(">>>>>>>> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ECONOMY SCREEN ");
+								    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ECONOMY SCREEN ");
 								    setContentView(R.layout.economy_screen);
-								    text = ((EconomyScreen) quizMaster.getCurrentGameScreen()).getEconomyScreenTextViewText();
+								    text = quizMaster.getCurrentGameScreen().getTextViewText();
 								    the_textView = (TextView) findViewById(R.id.economy_screen_textView);
 						    		the_textView.setText(text);
 									break;
 									
 							   case GameScreen.PERFORMANCE_REVIEW_SCREEN:
-								   System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Performance Review SCREEN ");
-								   setContentView(R.layout.performance_review);
-								   text = ((PerformanceReviewScreen) quizMaster.getCurrentGameScreen()).getPerformanceReviewScreenTextViewText();
-								   the_textView = (TextView) findViewById(R.id.performance_review_textview);
-						    	   the_textView.setText(text);
-						    	   
-						    	   ArrayList<Job> jbl = quizMaster.getJobOpportunities();
-						    	   
-						    	    bto1 = (Button) findViewById(R.id.button_job1);
+								    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Performance Review Screen ");
+								    setContentView(R.layout.performance_review);
+								    text = quizMaster.getCurrentGameScreen().getTextViewText();
+								    ArrayList<Job> jobs = quizMaster.getJobOpportunities();
+								    
+								    bto1 = (Button) findViewById(R.id.button_job1);
 									bto2 = (Button) findViewById(R.id.button_job2);
 									bto3 = (Button) findViewById(R.id.button_job3);
 									bto4 = (Button) findViewById(R.id.button_job4);
 									bto5 = (Button) findViewById(R.id.button_job5);
 									bto6 = (Button) findViewById(R.id.button_job6);
+								    
+									bto1.setText(jobs.get(0).getJobDesc());
+									bto2.setText(jobs.get(1).getJobDesc());
+									bto3.setText(jobs.get(2).getJobDesc());
+									bto4.setText(jobs.get(3).getJobDesc());
+									bto5.setText(jobs.get(4).getJobDesc());
+									bto6.setText(jobs.get(5).getJobDesc());
 									
-									bto1.setText(jbl.get(0).getJobDesc());
-									bto2.setText(jbl.get(1).getJobDesc());
-									bto3.setText(jbl.get(2).getJobDesc());
-									bto4.setText(jbl.get(3).getJobDesc());
-									bto5.setText(jbl.get(4).getJobDesc());
-									bto6.setText(jbl.get(5).getJobDesc());
-									
-									
-									
-									
-									
+								    the_textView = (TextView) findViewById(R.id.head);
+						    		the_textView.setText(text);
+									break;
+								
 									/* TODO grob der code
 							   case GameScreen.REMEMBERED_FOR_SCREEN:
 								   	setContentView(R.layout.remembered_for);

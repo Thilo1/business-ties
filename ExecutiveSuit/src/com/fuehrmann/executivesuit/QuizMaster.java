@@ -133,7 +133,7 @@ public class QuizMaster {
 			
 			jobs.add(jobList.get(i));
 			System.out.println("added: "+jobList.get(i).getJobDesc());
-			
+			if(jobs.size()==6) return jobs;
 		}
 			
 		}
@@ -165,12 +165,13 @@ public class QuizMaster {
 		jobList.add(new Job("Sales Assistant", 40,3));
 		jobList.add(new Job("Accounts Receivable Clerk", 40,3));
 		
-		jobList.add(new Job("Customer Service Clerk", 40,2));
+		jobList.add(new Job("Customer Service Clerk", 30,2));
 		jobList.add(new Job("Assembler Trainee", 30,2));
 		jobList.add(new Job("Sales Trainee", 30,2));
 		jobList.add(new Job("Accounting Trainee", 30,2));
+		jobList.add(new Job("Call Center Clerk", 30,2));
 		
-		jobList.add(new Job("Call Center Clerk", 20,1));
+		
 		jobList.add(new Job("Maintenance Personnel", 20,1));
 		
 		jobList.add(new Job("Copy Clerk", -100,0));

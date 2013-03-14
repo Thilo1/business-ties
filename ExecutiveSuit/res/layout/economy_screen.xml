@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@string/background">
+    android:background="@string/background_color">
     
     <TextView android:layout_width="fill_parent"
         	  android:layout_height="0dp"
@@ -13,7 +13,7 @@
         	  android:textStyle="bold"
         	  android:typeface="serif"
         	  android:gravity="center"
-        	  android:textColor="@color/WhiteSmoke"/>
+        	  android:textColor="@string/text_color"/>
 
     <ImageView  android:layout_width="match_parent"
         		android:contentDescription="@string/skyline_description"
@@ -28,7 +28,8 @@
         	 android:textSize="14sp"
         	 android:text="@string/button_continue"
         	 android:onClick="answer"
-        	 android:id="@+id/button_continue"/>
+        	 android:id="@+id/button_continue"
+        	 android:textColor="@string/text_color"/>
     
 
 </LinearLayout>

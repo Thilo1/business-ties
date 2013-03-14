@@ -13,21 +13,12 @@
 	<string name="text_welcome">Welcome to \u000A Nerdy Computer Systems Corporation.</string>
 	<string name="Intro">The Nerdy Computer Systems Corporation Building is impressive. You walk into the Foyer and go to the Reception Lady. \u000A
 	    She welcomes and guides you to the Personnels Office.</string>
-	<string name="button_job1">Platzhalter Babidudub</string>
-	<string name="button_job2">Platzhalter Babidudub</string>
-	<string name="button_job3">Platzhalter Babidudub</string>
-	<string name="button_job4">Platzhalter Babidudub</string>
-	<string name="button_job5">Platzhalter Babidudub</string>
-	<string name="button_job6">Platzhalter Babidudub</string>
-	<string name="background">@color/Black</string>
-	<string name="perf">The economy is $$$$ at the moment. Given this economy and your background, you may apply for the following entry level positions:</string>
-	<string name="jobLevel">Job Level</string>
-	<string name="jobDescription">Job Description</string>
-	
-	<string name="string_two">2</string>
-	<string name="string_three">3</string>
-	<string name="string_four">4</string>
-	<string name="string_five">5</string>
-	<string name="string_six">6</string>
-	<string name="string_seven">7</string>
+	<string name="button_job1">Platzhalter</string>
+	<string name="button_job2">Platzhalter</string>
+	<string name="button_job3">Platzhalter</string>
+	<string name="button_job4">Platzhalter</string>
+	<string name="button_job5">Platzhalter</string>
+	<string name="button_job6">Platzhalter</string>
+	<string name="background_color">@color/Black</string>
+	<string name="text_color">@color/LimeGreen</string>
 </resources>

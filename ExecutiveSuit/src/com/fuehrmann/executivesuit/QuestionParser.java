@@ -57,7 +57,6 @@ public class QuestionParser {
 				entries.add(readPerformanceReviewScreen(parser));
 				System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> PerformanceReviewScreen parsed");
 			}
-			
 			/*
 			if (name.equals("JobDescriptionScreen")){
 				entries.add(readJobDescriptionScreen(parser));
@@ -74,8 +73,7 @@ public class QuestionParser {
 		return entries;
 	}
 	
-	private PerformanceReviewScreen readPerformanceReviewScreen(XmlPullParser parser) throws XmlPullParserException, IOException {
-		
+	private GameScreen readPerformanceReviewScreen(XmlPullParser parser) throws XmlPullParserException, IOException {
 		String textViewText="";
 		
 		parser.require(XmlPullParser.START_TAG, ns, "PerformanceReviewScreen");
@@ -98,8 +96,7 @@ public class QuestionParser {
 	    }
 		return new PerformanceReviewScreen(textViewText);
 	}
-	
-	
+
 	private EconomyScreen readEconomyScreen(XmlPullParser parser) throws XmlPullParserException, IOException {
 		String textViewText="";
 		
@@ -325,9 +322,14 @@ public class QuestionParser {
 	    public static final int BAD  = 3;
 		
 		protected int typeid;
-
+		protected String textViewText;
+		
 		public int getTypeid() {
 			return typeid;
+		}
+		
+		public String getTextViewText(){
+			return textViewText;
 		}
 		
 	}
@@ -417,13 +419,7 @@ public class QuestionParser {
 	}
 	
 	public class SingleTextViewScreen extends GameScreen{
-		
-		private String textViewText;
-	
-		public String getSingleTextViewText() {
-			return textViewText;
-		}
-		
+
 		public SingleTextViewScreen(String tvt){
 			typeid = SINGLE_TEXT_VIEW_SCREEN;
 			textViewText = tvt;
@@ -433,12 +429,6 @@ public class QuestionParser {
 	
 	public class EconomyScreen extends GameScreen{
 		
-		private String textViewText;
-	
-		public String getEconomyScreenTextViewText() {
-			return textViewText;
-		}
-		
 		public EconomyScreen(String tvt){
 			typeid = ECONOMY_SCREEN;
 			textViewText = tvt;
@@ -447,13 +437,7 @@ public class QuestionParser {
 	}
 	
 	public class PerformanceReviewScreen extends GameScreen{
-		
-		private String textViewText;
-	
-		public String getPerformanceReviewScreenTextViewText() {
-			return textViewText;
-		}
-		
+
 		public PerformanceReviewScreen(String tvt){
 			typeid = PERFORMANCE_REVIEW_SCREEN;
 			textViewText = tvt;
@@ -462,12 +446,6 @@ public class QuestionParser {
 	}
 	
 	public class JobDescriptionScreen extends GameScreen{
-		
-		private String textViewText;
-	
-		public String getSingleTextViewScreen() {
-			return textViewText;
-		}
 		
 		public JobDescriptionScreen(String tvt){
 			

@@ -173,7 +173,7 @@
     </EconomyScreen>
     
     <PerformanceReviewScreen>
-        <TextViewText>The economy is $$$$ at the moment. Given this economy and your background, you may apply for the following entry level positions:</TextViewText>
+        <TextViewText>The economy is $$$$ at the moment. Given this economy and your background, you may apply for the following entry level positions.</TextViewText>
     </PerformanceReviewScreen>
     
     <SingleTextViewScreen>
