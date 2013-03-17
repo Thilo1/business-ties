@@ -179,7 +179,7 @@ public class BeforeInterviewActivity extends Activity {
     	}
     	
     	//Wenn ein Game Screen dran ist
-    	System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>  GAME_SCREEN: " + quizMaster.getCurrentGameScreen().getTypeid());
+    	System.out.println(">>>>>>>>>>>><<<>>>>>>>>>>>>>>>>  GAME_SCREEN: " + quizMaster.getCurrentGameScreen().getTypeid());
 		switch (quizMaster.getCurrentGameScreen().getTypeid()){
 		
 								case GameScreen.TYPE_INPUT:
