@@ -21,4 +21,6 @@
 	<string name="button_job6">Platzhalter</string>
 	<string name="background_color">@color/Black</string>
 	<string name="text_color">@color/LimeGreen</string>
+	<string name="jobD">Job Description</string>
+	<string name="jobL">Job Level</string>
 </resources>

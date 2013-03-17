@@ -8,6 +8,7 @@
 
     <TextView
         android:id="@+id/head"
+        android:textIsSelectable="true"
         android:layout_width="fill_parent"
         android:layout_columnSpan="2"
         android:gravity="center"
@@ -21,7 +22,7 @@
         android:layout_column="0"
         android:layout_row="1"
         android:gravity="left"
-        android:text="Job Desription"
+        android:text="@string/jobD"
         android:textColor="@string/text_color"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -33,7 +34,7 @@
         android:layout_gravity="right|top"
       
         android:layout_row="1"
-        android:text="Job Level"
+        android:text="@string/jobL"
         android:textColor="@string/text_color"
         android:textSize="18sp"
         android:textStyle="bold"
