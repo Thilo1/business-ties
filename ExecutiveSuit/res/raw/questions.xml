@@ -163,22 +163,22 @@
     </question>
     
     <SingleTextViewScreen>
-        <TextViewText>There is no question, Thilo, you make an impressive applicant. Let's see what entry level positions NCSC might have available for you.</TextViewText>
+        <TextViewText>There is no question, %1$s, you make an impressive applicant. Let's see what entry level positions NCSC might have available for you.</TextViewText>
     </SingleTextViewScreen>
     
     <EconomyScreen>
-        <TextViewText>The economy is $$$$ at the moment</TextViewText>
+        <TextViewText>The economy is %1$s at the moment.</TextViewText>
         <Image></Image>
         <Button></Button>
     </EconomyScreen>
     
     <PerformanceReviewScreen>
-        <TextViewText>The economy is $$$$ at the moment. Given this economy and your background, you may apply for the following entry level positions.</TextViewText>
+        <TextViewText>The economy is %1$s at the moment. Given this economy and your background, you may apply for the following entry level positions.</TextViewText>
     </PerformanceReviewScreen>
     
-    <SingleTextViewScreen>
-        <TextViewText>Congratulations, Thilo!. You have the job of Customer Service Clerk. The Following came in your morning email.</TextViewText>
-    </SingleTextViewScreen>
+    <CongratulationsScreen>
+        <TextViewText>Congratulations, %1$s!. You have the job of %2$s. The Following came in your morning email.</TextViewText>
+    </CongratulationsScreen>
     
     <JobDescriptionScreen>
         <TextView>Employee Status Change Form. Nerdy Computer Systems Corporation.</TextView>

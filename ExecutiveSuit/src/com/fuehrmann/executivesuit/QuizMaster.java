@@ -10,6 +10,9 @@ public class QuizMaster {
 
 	public static final String CONTINUE_BUTTON = "continue";
 	public static final String EMPTY_STRING = "";
+	public static final String ECONOMY_IS_FAIR = "fair";
+	public static final String ECONOMY_IS_SHRINKING = "shrinking";
+	public static final String ECONOMY_IS_EXPANDING = "expanding";
 	
 	public static final int TEN_POINTS = 10;
 	public static final int FIVE_POINTS = 5;
@@ -25,6 +28,7 @@ public class QuizMaster {
 	
 	public static boolean IS_GOOD_PLAYER;
 	public static int ECONOMY_STATE = 0;
+	public static String ECONOMY_STATE_STRING = "";
 	
 	public GameScreen currentGameScreen;
 	public String story;
@@ -43,6 +47,11 @@ public class QuizMaster {
 		System.out.println("input in QUIZMASTER: " + input);
 		
 		if (question.equals(((Question)gameScreenList.get(0)).getQuestion())) PLAYER_NAME=input;
+		
+		for (int i=0;i<jobList.size();i++){
+			if (jobList.get(i).jobDesc.equals(answer)) 
+				assessment();
+		}
 		
 		setWetherPlayerIsGoodOrNot();
 		calcEconomy();
@@ -72,6 +81,11 @@ public class QuizMaster {
 		
 	}
 	
+	private void assessment() {
+		// TODO Auto-generated method stub
+		//jetzt economy state, memeories und score beachten und damit feststellen ob man den job bekommen hat.
+	}
+
 	public void log(){
 		System.out.println("ECONOMY_STATE:  " + ECONOMY_STATE);
 		System.out.println("PLAYER_STATE: " + IS_GOOD_PLAYER);
@@ -184,9 +198,18 @@ public class QuizMaster {
 	
 	private void calcEconomy(){
 		double eco = Math.random();
-		if (eco < 0.3333) 				   ECONOMY_STATE = ECONOMY_SHRINKING;
-		if (0.3333 <= eco && eco < 0.6666) ECONOMY_STATE = ECONOMY_FAIR;
-		if (eco >= 0.6666) 				   ECONOMY_STATE = ECONOMY_EXPANDING;
+		if (eco < 0.3333) 				   {
+			ECONOMY_STATE = ECONOMY_SHRINKING;
+			ECONOMY_STATE_STRING = ECONOMY_IS_SHRINKING;
+		}
+		if (0.3333 <= eco && eco < 0.6666) {
+			ECONOMY_STATE = ECONOMY_FAIR;
+			ECONOMY_STATE_STRING = ECONOMY_IS_FAIR;
+		}
+		if (eco >= 0.6666) {
+			ECONOMY_STATE = ECONOMY_EXPANDING;
+			ECONOMY_STATE_STRING = ECONOMY_IS_EXPANDING;
+		}
 	}
 
 	private void setWetherPlayerIsGoodOrNot(){

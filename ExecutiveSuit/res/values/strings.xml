@@ -23,4 +23,7 @@
 	<string name="text_color">@color/LimeGreen</string>
 	<string name="jobD">Job Description</string>
 	<string name="jobL">Job Level</string>
+	<string name="eco">The economy is %1$s at the moment.</string>
+	<string name="congratulation">Congratulations, %1$s!. You have the job of %2$s. The Following came in your morning email.</string>
+	<string name="sorry">Sorry, %1$s!.</string>
 </resources>

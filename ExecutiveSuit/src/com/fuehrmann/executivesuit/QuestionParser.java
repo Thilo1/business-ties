@@ -57,6 +57,10 @@ public class QuestionParser {
 				entries.add(readPerformanceReviewScreen(parser));
 				System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> PerformanceReviewScreen parsed");
 			}
+			if (name.equals("CongratulationsScreen")){
+				entries.add(readCongratulationsScreen(parser));
+				System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> CongratulationsScreen parsed");
+			}
 			/*
 			if (name.equals("JobDescriptionScreen")){
 				entries.add(readJobDescriptionScreen(parser));
@@ -65,7 +69,8 @@ public class QuestionParser {
 			*/
 			// ende mod
 			
-			if(!name.equals("question") && !name.equals("SingleTextViewScreen") && !name.equals("EconomyScreen") && !name.equals("PerformanceReviewScreen")) {
+			if(!name.equals("question") && !name.equals("SingleTextViewScreen") && !name.equals("EconomyScreen")
+					&& !name.equals("PerformanceReviewScreen") && !name.equals("CongratulationsScreen")) {
 				System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>> skip...");
 				skip(parser);
 			}
@@ -73,6 +78,29 @@ public class QuestionParser {
 		return entries;
 	}
 	
+	private GameScreen readCongratulationsScreen(XmlPullParser parser) throws XmlPullParserException, IOException {
+		String textViewText="";
+		
+		parser.require(XmlPullParser.START_TAG, ns, "CongratulationsScreen");
+
+		while (parser.next() != XmlPullParser.END_TAG) {
+			
+	        if (parser.getEventType() != XmlPullParser.START_TAG) {
+	            continue;
+	        }
+	        
+	        String name = parser.getName();
+	        
+	        if (name.equals("TextViewText")) {
+	          textViewText = readTextViewText(parser);
+	            
+	        }
+	        else {
+	            skip(parser);
+	        }
+	    }
+		return new CongratulationsScreen(textViewText);
+	}
 	private GameScreen readPerformanceReviewScreen(XmlPullParser parser) throws XmlPullParserException, IOException {
 		String textViewText="";
 		
@@ -316,6 +344,7 @@ public class QuestionParser {
 	    public static final int SINGLE_TEXT_VIEW_SCREEN = 6;
 	    public static final int ECONOMY_SCREEN = 7;
 	    public static final int PERFORMANCE_REVIEW_SCREEN = 8;
+	    public static final int CONGRATULATIONS_SCREEN = 9;
 	    
 	    public static final int GOOD = 1;
 	    public static final int AVG  = 2;
@@ -440,6 +469,15 @@ public class QuestionParser {
 
 		public PerformanceReviewScreen(String tvt){
 			typeid = PERFORMANCE_REVIEW_SCREEN;
+			textViewText = tvt;
+		}
+		
+	}
+	
+public class CongratulationsScreen extends GameScreen{
+		
+		public CongratulationsScreen(String tvt){
+			typeid = CONGRATULATIONS_SCREEN;
 			textViewText = tvt;
 		}
 		

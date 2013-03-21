@@ -229,7 +229,7 @@ public class BeforeInterviewActivity extends Activity {
 							   case GameScreen.ECONOMY_SCREEN:
 								    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ECONOMY SCREEN ");
 								    setContentView(R.layout.economy_screen);
-								    text = quizMaster.getCurrentGameScreen().getTextViewText();
+								    text = String.format(quizMaster.getCurrentGameScreen().getTextViewText(), QuizMaster.ECONOMY_STATE_STRING) ;
 								    the_textView = (TextView) findViewById(R.id.economy_screen_textView);
 						    		the_textView.setText(text);
 									break;
@@ -237,7 +237,7 @@ public class BeforeInterviewActivity extends Activity {
 							   case GameScreen.PERFORMANCE_REVIEW_SCREEN:
 								    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Performance Review Screen ");
 								    setContentView(R.layout.performance_review);
-								    text = quizMaster.getCurrentGameScreen().getTextViewText();
+								    text = String.format(quizMaster.getCurrentGameScreen().getTextViewText(), QuizMaster.ECONOMY_STATE_STRING) ;
 								    ArrayList<Job> jobs = quizMaster.getJobOpportunities();
 								    
 								    bto1 = (Button) findViewById(R.id.button_job1);
@@ -256,8 +256,19 @@ public class BeforeInterviewActivity extends Activity {
 									
 								    the_textView = (TextView) findViewById(R.id.head);
 						    		the_textView.setText(text);
+						    		
 									break;
 								
+							   case GameScreen.CONGRATULATIONS_SCREEN:
+								    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> CONGRATS SCREEN ");
+								    setContentView(R.layout.story_screen);
+								    
+								    
+								    
+								    text = String.format(quizMaster.getCurrentGameScreen().getTextViewText(), QuizMaster.ECONOMY_STATE_STRING) ;
+								    the_textView = (TextView) findViewById(R.id.economy_screen_textView);
+						    		the_textView.setText(text);
+									break;	
 									/* TODO grob der code
 							   case GameScreen.REMEMBERED_FOR_SCREEN:
 								   	setContentView(R.layout.remembered_for);
