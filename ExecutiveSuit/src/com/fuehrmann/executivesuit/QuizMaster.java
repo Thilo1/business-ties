@@ -30,6 +30,8 @@ public class QuizMaster {
 	public static int ECONOMY_STATE = 0;
 	public static String ECONOMY_STATE_STRING = "";
 	
+	public static boolean JOB_IS_GRANTED=false;
+	
 	public GameScreen currentGameScreen;
 	public String story;
 
@@ -38,7 +40,19 @@ public class QuizMaster {
 	public List<String> avgMemories;
 	public List<String> badMemories;
 	
+	
 	public List<Job> jobList;
+	public Job jobFromJoblist = null;
+	
+	public Job getJobFromJoblist() {
+		return jobFromJoblist;
+	}
+
+	public void setJobFromJoblist(Job jobFromJoblist) {
+		this.jobFromJoblist = jobFromJoblist;
+	}
+    
+	
 	
 	public void update(String question, String answer, String input){
 		System.out.println("UPDATE in QUIZMASTER:  " + GAME_SCREEN_COUNTER);
@@ -47,15 +61,19 @@ public class QuizMaster {
 		System.out.println("input in QUIZMASTER: " + input);
 		
 		if (question.equals(((Question)gameScreenList.get(0)).getQuestion())) PLAYER_NAME=input;
-		
+		log();
 		for (int i=0;i<jobList.size();i++){
-			if (jobList.get(i).jobDesc.equals(answer)) 
+			if (jobList.get(i).jobDesc.equals(answer)) {
+				jobFromJoblist = jobList.get(i); 
+				System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> job: " + jobFromJoblist.jobDesc);
 				assessment();
+				
+			}
 		}
 		
 		setWetherPlayerIsGoodOrNot();
-		calcEconomy();
-		log();
+		
+		
 		
 		
 		// Wenn der continue Button gedrückt wurde die Story reset
@@ -82,13 +100,32 @@ public class QuizMaster {
 	}
 	
 	private void assessment() {
-		// TODO Auto-generated method stub
+		
 		//jetzt economy state, memeories und score beachten und damit feststellen ob man den job bekommen hat.
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>XXXXXXXXXXXXX>>> assesment");
+		int tempScore = SCORE;
+		
+		if (!IS_GOOD_PLAYER) tempScore -= FIVE_POINTS;
+		if (IS_GOOD_PLAYER) tempScore  += FIVE_POINTS;
+		
+		if (ECONOMY_STATE == ECONOMY_SHRINKING) tempScore -= FIVE_POINTS;
+		if (ECONOMY_STATE == ECONOMY_EXPANDING) tempScore += FIVE_POINTS;
+	
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> job: " + jobFromJoblist.jobDesc);
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> tempScore: " + tempScore);
+		if (tempScore >= jobFromJoblist.getMinScore()){
+			JOB_IS_GRANTED = true;
+		}
+		else{
+			JOB_IS_GRANTED = false;
+		}
 	}
 
 	public void log(){
-		System.out.println("ECONOMY_STATE:  " + ECONOMY_STATE);
+		System.out.println("ECONOMY_STATE:  " + ECONOMY_STATE_STRING);
 		System.out.println("PLAYER_STATE: " + IS_GOOD_PLAYER);
+		System.out.println("SCORE: " + SCORE);
+		System.out.println("JOB IS GRANTED: " + JOB_IS_GRANTED);
 	}
 	
 	public void evaluateAnswer(String question, String answer, String input){
@@ -163,40 +200,42 @@ public class QuizMaster {
 		story = EMPTY_STRING;
 		jobList = new ArrayList<Job>();
 		
-		jobList.add(new Job("Chief Executive Officer", 120,12));
-		jobList.add(new Job("Chief Financial Officer", 100,11));
-		jobList.add(new Job("Senior Software Architect", 70,7));
+		String[] arr = {"1 Week Vacation","Own Desk","Working Telephone", "NCSC Key-Chain"};
 		
-		jobList.add(new Job("Assistant Product Manager", 50,4));
-		jobList.add(new Job("Software Engineer", 50,4));
-		jobList.add(new Job("Production Foreman", 50,4));
-		jobList.add(new Job("Accounting Supervisor", 50,4));
-		jobList.add(new Job("Marketing Assistant", 50,4));
+		jobList.add(new Job("Chief Executive Officer", 120,12,1000000,arr));
+		jobList.add(new Job("Chief Financial Officer", 100,11,500000,arr));
+		jobList.add(new Job("Senior Software Architect", 70,7,200000,arr));
 		
-		jobList.add(new Job("Senior Accounting Clerk", 40,3));
-		jobList.add(new Job("Salesman", 40,3));
-		jobList.add(new Job("Skilled Assembler", 40,3));
-		jobList.add(new Job("Sales Assistant", 40,3));
-		jobList.add(new Job("Accounts Receivable Clerk", 40,3));
+		jobList.add(new Job("Assistant Product Manager", 50,4,100000,arr));
+		jobList.add(new Job("Software Engineer", 50,4,50000,arr));
+		jobList.add(new Job("Production Foreman", 50,4,50000,arr));
+		jobList.add(new Job("Accounting Supervisor", 50,4,50000,arr));
+		jobList.add(new Job("Marketing Assistant", 50,4,50000,arr));
 		
-		jobList.add(new Job("Customer Service Clerk", 30,2));
-		jobList.add(new Job("Assembler Trainee", 30,2));
-		jobList.add(new Job("Sales Trainee", 30,2));
-		jobList.add(new Job("Accounting Trainee", 30,2));
-		jobList.add(new Job("Call Center Clerk", 30,2));
+		jobList.add(new Job("Senior Accounting Clerk", 40,3,50000,arr));
+		jobList.add(new Job("Salesman", 40,3,50000,arr));
+		jobList.add(new Job("Skilled Assembler", 40,3,50000,arr));
+		jobList.add(new Job("Sales Assistant", 40,3,50000,arr));
+		jobList.add(new Job("Accounts Receivable Clerk", 40,3,50000,arr));
+		
+		jobList.add(new Job("Customer Service Clerk", 30,2,50000,arr));
+		jobList.add(new Job("Assembler Trainee", 30,2,50000,arr));
+		jobList.add(new Job("Sales Trainee", 30,2,50000,arr));
+		jobList.add(new Job("Accounting Trainee", 30,2,50000,arr));
+		jobList.add(new Job("Call Center Clerk", 30,2,50000,arr));
 		
 		
-		jobList.add(new Job("Maintenance Personnel", 20,1));
+		jobList.add(new Job("Maintenance Personnel", 20,1,50000,arr));
 		
-		jobList.add(new Job("Copy Clerk", -100,0));
-		jobList.add(new Job("General Helper", -100,0));
+		jobList.add(new Job("Copy Clerk", -100,0,50000,arr));
+		jobList.add(new Job("General Helper", -100,0,50000,arr));
 	}
 
 	public void start(){
 		update(EMPTY_STRING,EMPTY_STRING,EMPTY_STRING);
 	}
 	
-	private void calcEconomy(){
+	public void calcEconomy(){
 		double eco = Math.random();
 		if (eco < 0.3333) 				   {
 			ECONOMY_STATE = ECONOMY_SHRINKING;
@@ -224,11 +263,15 @@ public class QuizMaster {
 		private String jobDesc;
 		private int    minScore;
 		private int    careerLevel;
+		private int    salary;
+		private String[] perks;
 		
-		public Job(String desc, int score, int level){
-			jobDesc = desc;
-			minScore = score;
-			careerLevel = level;
+		public Job(String desc, int score, int level, int salary, String[] perks){
+			this.jobDesc = desc;
+			this.minScore = score;
+			this.careerLevel = level;
+			this.setSalary(salary);
+			this.setPerks(perks);
 		}
 		
 		public String getJobDesc() {
@@ -241,6 +284,22 @@ public class QuizMaster {
 		
 		public int getMinScore(){
 			return minScore;
+		}
+
+		public int getSalary() {
+			return salary;
+		}
+
+		public void setSalary(int salary) {
+			this.salary = salary;
+		}
+
+		public String[] getPerks() {
+			return perks;
+		}
+
+		public void setPerks(String[] perks) {
+			this.perks = perks;
 		}
 	}
 	

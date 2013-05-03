@@ -177,13 +177,11 @@
     </PerformanceReviewScreen>
     
     <CongratulationsScreen>
-        <TextViewText>Congratulations, %1$s!. You have the job of %2$s. The Following came in your morning email.</TextViewText>
+        <TextViewText>Congratulations, %1$s! You have the job of %2$s. The Following came in your morning email.</TextViewText>
     </CongratulationsScreen>
     
     <JobDescriptionScreen>
-        <TextView>Employee Status Change Form. Nerdy Computer Systems Corporation.</TextView>
-        <EmployeeInfo>></EmployeeInfo>
-        <JobInfo></JobInfo>
+        <TextViewText>Employee Status Change Form. Nerdy Computer Systems Corporation.</TextViewText>
     </JobDescriptionScreen>
     
     <question>

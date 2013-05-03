@@ -151,6 +151,11 @@ public class BeforeInterviewActivity extends Activity {
 						btn = (Button) view;
 						answerText = ""+btn.getText();
 						break;
+					
+    				case R.id.button_job6:
+						btn = (Button) view;
+						answerText = ""+btn.getText();
+						break;
     	}
 
     	quizMaster.update(questionText, answerText, inputText);
@@ -220,7 +225,7 @@ public class BeforeInterviewActivity extends Activity {
 									
 							   case GameScreen.SINGLE_TEXT_VIEW_SCREEN:
 								    setContentView(R.layout.story_screen);
-								    text =  quizMaster.getCurrentGameScreen().getTextViewText();
+								    text = String.format(quizMaster.getCurrentGameScreen().getTextViewText(),QuizMaster.PLAYER_NAME) ;
 								    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> SINGLE TEXT VIEW SCREEN"+text);
 								    the_textView = (TextView) findViewById(R.id.question_name);
 						    		the_textView.setText(text);
@@ -228,6 +233,7 @@ public class BeforeInterviewActivity extends Activity {
 									
 							   case GameScreen.ECONOMY_SCREEN:
 								    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ECONOMY SCREEN ");
+								    quizMaster.calcEconomy();
 								    setContentView(R.layout.economy_screen);
 								    text = String.format(quizMaster.getCurrentGameScreen().getTextViewText(), QuizMaster.ECONOMY_STATE_STRING) ;
 								    the_textView = (TextView) findViewById(R.id.economy_screen_textView);
@@ -260,15 +266,56 @@ public class BeforeInterviewActivity extends Activity {
 									break;
 								
 							   case GameScreen.CONGRATULATIONS_SCREEN:
-								    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> CONGRATS SCREEN ");
+								    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CONGRATS SCREEN");
 								    setContentView(R.layout.story_screen);
 								    
+								    if( QuizMaster.JOB_IS_GRANTED){
+								    	text = String.format(quizMaster.getCurrentGameScreen().getTextViewText(),QuizMaster.PLAYER_NAME, quizMaster.getJobFromJoblist().getJobDesc()) ;
+								    	System.out.println("Player Name" + QuizMaster.PLAYER_NAME);
+								    }
+								    else{
+								    	text = "_Sorry...";
+								    }
 								    
 								    
-								    text = String.format(quizMaster.getCurrentGameScreen().getTextViewText(), QuizMaster.ECONOMY_STATE_STRING) ;
-								    the_textView = (TextView) findViewById(R.id.economy_screen_textView);
+								    the_textView = (TextView) findViewById(R.id.question_name);
 						    		the_textView.setText(text);
-									break;	
+									break;
+									
+							   case GameScreen.JOB_DESCRIPTION_SCREEN:
+								    System.out.println(">>>>>> v>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>JOB DESCRIPTION SCREEN");
+								    setContentView(R.layout.employee_status_change_form);
+								    
+								    TextView the1 = (TextView) findViewById(R.id.head1);
+								    the1.setText(QuizMaster.PLAYER_NAME);
+								    
+								    TextView the2 = (TextView) findViewById(R.id.head2);
+								    the2.setText("25 years");
+								    
+								    TextView the3 = (TextView) findViewById(R.id.head3);
+								    the3.setText("0 years");
+								    
+								    TextView the4 = (TextView) findViewById(R.id.head4);
+								    the4.setText(quizMaster.getJobFromJoblist().getJobDesc());
+								    
+								    TextView the5 = (TextView) findViewById(R.id.head5);
+								    the5.setText(""+quizMaster.getJobFromJoblist().getCareerLevel());
+								    
+								    TextView the6 = (TextView) findViewById(R.id.head6);
+								    the6.setText("$ "+quizMaster.getJobFromJoblist().getSalary() +" per year");
+								    
+								    
+								    TextView the7 = (TextView) findViewById(R.id.head7);
+								    
+								    String[] ary = quizMaster.getJobFromJoblist().getPerks();
+								    String to ="";
+								    for (String item: ary) {
+								    	to = to + item + System.getProperty("line.separator");
+								    }
+								    the7.setText(to);
+								    
+									break;
+									
 									/* TODO grob der code
 							   case GameScreen.REMEMBERED_FOR_SCREEN:
 								   	setContentView(R.layout.remembered_for);

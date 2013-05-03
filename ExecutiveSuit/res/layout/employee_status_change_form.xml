@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@drawable/brdr"
+    android:columnCount="2"
+    android:orientation="horizontal">
+
+    
+    <TextView
+        android:id="@+id/head"
+        android:textIsSelectable="true"
+        android:layout_width="fill_parent"
+        android:layout_columnSpan="2"
+        android:text="@string/escf"
+        android:gravity="center"
+        android:textColor="@string/text_color"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+    
+    
+
+    <TextView 
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_column="0"
+       
+        android:gravity="left"
+        android:text= "@string/emp_name"
+        android:textColor="@string/text_color"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+    
+    <TextView android:id="@+id/head1"
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_column="1"
+       android:textIsSelectable="false"
+        android:gravity="left"
+        
+        android:textColor="@string/text_color"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+
+    
+    
+    <TextView 
+                android:layout_margin="10dp" 
+        android:layout_width="wrap_content"
+        android:layout_column="0"
+      
+        android:text="@string/cur_age"
+        android:textColor="@string/text_color"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+    
+    <TextView android:id="@+id/head2"
+                android:layout_margin="10dp" 
+        android:layout_width="wrap_content"
+        android:layout_column="1"
+      
+        android:textIsSelectable="false"
+        android:textColor="@string/text_color"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+    
+    
+    
+    <TextView  
+        android:layout_margin="10dp" 
+        android:layout_width="wrap_content"
+        android:layout_column="0"
+        android:text="@string/emp_tenure"
+        android:textColor="@string/text_color"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+    
+    <TextView         android:layout_margin="10dp" android:id="@+id/head3"
+        android:layout_width="wrap_content"
+        android:layout_column="1"
+      
+        android:textIsSelectable="false"
+        android:textColor="@string/text_color"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+    
+    
+    <TextView         android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_column="0"
+       
+        android:text="@string/new_job"
+        android:textColor="@string/text_color"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+    
+    <TextView         android:layout_margin="10dp" android:id="@+id/head4"
+        android:layout_width="wrap_content"
+        android:layout_column="1"
+       
+android:textIsSelectable="false"
+        android:textColor="@string/text_color"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+    
+    <TextView         android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_column="0"
+
+        android:text="@string/new_level"
+        android:textColor="@string/text_color"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+    
+    <TextView 
+        android:layout_margin="10dp" 
+        android:id="@+id/head5"
+        android:layout_width="wrap_content"
+        android:layout_column="1"
+		android:textIsSelectable="false"
+ 
+        android:textColor="@string/text_color"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+    
+    
+    <TextView         android:layout_margin="10dp" 
+        android:layout_width="wrap_content"
+        android:layout_column="0"
+        android:text="@string/new_salary"
+        android:textColor="@string/text_color"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+    
+    <TextView 
+        android:id="@+id/head6"
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_column="1"
+        android:textColor="@string/text_color"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:typeface="serif" 
+        android:textIsSelectable="false"/>
+    
+    <TextView 
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_column="0"
+        android:text="@string/perks"
+        android:textColor="@string/text_color"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+    
+   <TextView          android:id="@+id/head7"
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_column="1"
+        android:text="@string/tperks"
+        android:textColor="@string/text_color"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+
+    <Button android:layout_width="fill_parent"
+        	 android:layout_column="0"
+        	 android:layout_columnSpan="2"
+             android:layout_row="8"
+        	 android:textSize="14sp"
+        	 android:text="@string/button_continue"
+        	 android:onClick="answer"
+        	 android:id="@+id/button_continue"
+        	 android:textColor="@string/text_color"/>
+ 
+</GridLayout>

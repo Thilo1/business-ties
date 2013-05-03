@@ -26,4 +26,19 @@
 	<string name="eco">The economy is %1$s at the moment.</string>
 	<string name="congratulation">Congratulations, %1$s!. You have the job of %2$s. The Following came in your morning email.</string>
 	<string name="sorry">Sorry, %1$s!.</string>
+	<string name="escf">Employee Status Change Form \u000A ----------------------------------------- \u000A Nerdy Computer Systems Corporation   \u000A \u000A</string>
+	<string name="margin">10dp</string>
+	
+	<!-- Employee Status Change Form Strings -->
+	<string name="emp_name">Employee Name: </string>
+	<string name="cur_age">Employee Current Age:</string>
+	<string name="emp_tenure">Employee tenure with NCSC:</string>
+	<string name="new_job">New Job Title:</string>
+	<string name="new_level">New Job Level:</string>
+	<string name="new_salary">New Salary:</string>
+	<string name="perks">Perks:</string>
+	
+	<string name="tperks">Perks: \u000A zgzgzo \u000A uzgusdfsdfs</string>
+	
+	
 </resources>

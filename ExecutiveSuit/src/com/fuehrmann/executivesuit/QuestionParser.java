@@ -61,16 +61,18 @@ public class QuestionParser {
 				entries.add(readCongratulationsScreen(parser));
 				System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> CongratulationsScreen parsed");
 			}
-			/*
+			
 			if (name.equals("JobDescriptionScreen")){
 				entries.add(readJobDescriptionScreen(parser));
 				System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> JobDescriptionScreen parsed");
 			}
-			*/
+			
+			
 			// ende mod
 			
 			if(!name.equals("question") && !name.equals("SingleTextViewScreen") && !name.equals("EconomyScreen")
-					&& !name.equals("PerformanceReviewScreen") && !name.equals("CongratulationsScreen")) {
+					&& !name.equals("PerformanceReviewScreen") && !name.equals("CongratulationsScreen")
+					&& !name.equals("JobDescriptionScreen")) {
 				System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>> skip...");
 				skip(parser);
 			}
@@ -78,6 +80,30 @@ public class QuestionParser {
 		return entries;
 	}
 	
+	private GameScreen readJobDescriptionScreen(XmlPullParser parser) throws XmlPullParserException, IOException {
+String textViewText="";
+		
+		parser.require(XmlPullParser.START_TAG, ns, "JobDescriptionScreen");
+
+		while (parser.next() != XmlPullParser.END_TAG) {
+			
+	        if (parser.getEventType() != XmlPullParser.START_TAG) {
+	            continue;
+	        }
+	        
+	        String name = parser.getName();
+	        
+	        if (name.equals("TextViewText")) {
+	          textViewText = readTextViewText(parser);
+	            
+	        }
+	        else {
+	            skip(parser);
+	        }
+	    }
+		return new JobDescriptionScreen(textViewText);
+	}
+
 	private GameScreen readCongratulationsScreen(XmlPullParser parser) throws XmlPullParserException, IOException {
 		String textViewText="";
 		
@@ -345,6 +371,7 @@ public class QuestionParser {
 	    public static final int ECONOMY_SCREEN = 7;
 	    public static final int PERFORMANCE_REVIEW_SCREEN = 8;
 	    public static final int CONGRATULATIONS_SCREEN = 9;
+	    public static final int JOB_DESCRIPTION_SCREEN = 10;
 	    
 	    public static final int GOOD = 1;
 	    public static final int AVG  = 2;
@@ -486,7 +513,7 @@ public class CongratulationsScreen extends GameScreen{
 	public class JobDescriptionScreen extends GameScreen{
 		
 		public JobDescriptionScreen(String tvt){
-			
+			typeid = JOB_DESCRIPTION_SCREEN;
 			textViewText = tvt;
 		}	
 	}	

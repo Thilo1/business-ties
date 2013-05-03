@@ -5,7 +5,8 @@
     android:orientation="vertical" 
     android:background="@string/background_color">
 
-    <TextView android:layout_width="fill_parent"
+    <TextView android:textIsSelectable="false"
+              android:layout_width="fill_parent"
         	  android:layout_height="0dp"
         	  android:layout_weight="7"
         	  android:id="@+id/question_name"        		
