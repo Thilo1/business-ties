@@ -19,8 +19,6 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:typeface="serif" />
-    
-    
 
     <TextView 
         android:layout_margin="10dp"

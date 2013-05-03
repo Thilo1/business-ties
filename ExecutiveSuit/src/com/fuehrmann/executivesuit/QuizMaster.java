@@ -40,7 +40,6 @@ public class QuizMaster {
 	public List<String> avgMemories;
 	public List<String> badMemories;
 	
-	
 	public List<Job> jobList;
 	public Job jobFromJoblist = null;
 	
@@ -52,15 +51,15 @@ public class QuizMaster {
 		this.jobFromJoblist = jobFromJoblist;
 	}
     
-	
-	
 	public void update(String question, String answer, String input){
-		System.out.println("UPDATE in QUIZMASTER:  " + GAME_SCREEN_COUNTER);
-		System.out.println("ANSWER in QUIZMASTER: " + answer);
-		System.out.println("question in QUIZMASTER:  " + question);
-		System.out.println("input in QUIZMASTER: " + input);
+		System.out.println("GAME SCREEN COUNTER " + GAME_SCREEN_COUNTER);
+		System.out.println("Parameters in update in QUIZMASTER, answer: " + answer);
+		System.out.println("Parameters in update in QUIZMASTER, question:  " + question);
+		System.out.println("Parameters in update in QUIZMASTER, input: " + input);
 		
-		if (question.equals(((Question)gameScreenList.get(0)).getQuestion())) PLAYER_NAME=input;
+		if (question.equals(((Question)gameScreenList.get(0)).getQuestion())) {
+			PLAYER_NAME=input;
+		}
 		log();
 		for (int i=0;i<jobList.size();i++){
 			if (jobList.get(i).jobDesc.equals(answer)) {
@@ -76,7 +75,7 @@ public class QuizMaster {
 		
 		
 		
-		// Wenn der continue Button gedrückt wurde die Story reset
+		// Wenn der continue Button gedrŸckt wurde die Story reset
 		if (answer.equals(CONTINUE_BUTTON) && input.equals(EMPTY_STRING) && !story.equals(EMPTY_STRING)){
 			story=EMPTY_STRING;
 			

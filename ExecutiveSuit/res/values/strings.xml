@@ -19,8 +19,16 @@
 	<string name="button_job4">Platzhalter</string>
 	<string name="button_job5">Platzhalter</string>
 	<string name="button_job6">Platzhalter</string>
+	
+	
+	<!-- global Styles -->
 	<string name="background_color">@color/Black</string>
 	<string name="text_color">@color/LimeGreen</string>
+	<string name="text_size_text_view">18sp</string>
+	<string name="text_size_on_answer_button">14sp</string>
+	
+	
+	
 	<string name="jobD">Job Description</string>
 	<string name="jobL">Job Level</string>
 	<string name="eco">The economy is %1$s at the moment.</string>

@@ -6,52 +6,27 @@
     android:background="@string/background_color"
     android:id="@+id/mcfive">
     
-    <TextView android:layout_width="match_parent"
-        		android:layout_height="0dp"
-        		android:layout_weight="3"
-        		android:gravity="center"
-        		android:textSize="14dp"
-        		android:id="@+id/question"
-        		android:textColor="@string/text_color"/>
+    <TextView   style="@style/CodeFont"
+        		android:id="@+id/question"/>
     
-    <Button android:layout_width="match_parent"
+    <Button style="@style/ButtonFont"
         	android:id="@+id/answer1"
-        	android:layout_height="0dp"
-        	android:layout_weight="1"
-        	android:textSize="14dp"
-        	android:textColor="@string/text_color"
         	android:onClick="answer"/>
     
-    <Button android:layout_width="match_parent"
+    <Button style="@style/ButtonFont"
         	android:id="@+id/answer2"
-        	android:layout_height="0dp"
-        	android:layout_weight="1"
-        	android:textSize="14dp"
-        	android:textColor="@string/text_color"
         	android:onClick="answer"/>
     
-    <Button android:layout_width="match_parent"
+    <Button style="@style/ButtonFont"
         	android:id="@+id/answer3"
-        	android:layout_height="0dp"
-        	android:layout_weight="1"
-        	android:textSize="14dp"
-        	android:textColor="@string/text_color"
         	android:onClick="answer"/>
     
-    <Button android:layout_width="match_parent"
+    <Button style="@style/ButtonFont"
         	android:id="@+id/answer4"
-        	android:layout_height="0dp"
-        	android:layout_weight="1"
-        	android:textSize="14dp"
-        	android:textColor="@string/text_color"
         	android:onClick="answer"/>
     
-    <Button android:layout_width="match_parent"
+    <Button style="@style/ButtonFont"
         	android:id="@+id/answer5"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:textSize="14dp"
-            android:textColor="@string/text_color"
             android:onClick="answer"/>
 
 </LinearLayout>

@@ -201,10 +201,35 @@ public class BeforeInterviewActivity extends Activity {
 									
 								case GameScreen.TYPE_MC3:
 									setContentView(R.layout.mc_question_three);
+									the_textView = (TextView) findViewById(R.id.question);
+									
+									bto1 = (Button) findViewById(R.id.answer1);
+									bto2 = (Button) findViewById(R.id.answer2);
+									bto3 = (Button) findViewById(R.id.answer3);
+									
+									the_textView.setText(((Question)quizMaster.getCurrentGameScreen()).getQuestion());
+									
+									bto1.setText(((Question)quizMaster.getCurrentGameScreen()).getChoices()[0].getCtext());
+									bto2.setText(((Question)quizMaster.getCurrentGameScreen()).getChoices()[1].getCtext());
+									bto3.setText(((Question)quizMaster.getCurrentGameScreen()).getChoices()[2].getCtext());
 									break;
 									
 								case GameScreen.TYPE_MC4:
 									setContentView(R.layout.mc_question_four);
+									the_textView = (TextView) findViewById(R.id.question);
+									
+									bto1 = (Button) findViewById(R.id.answer1);
+									bto2 = (Button) findViewById(R.id.answer2);
+									bto3 = (Button) findViewById(R.id.answer3);
+									bto4 = (Button) findViewById(R.id.answer4);
+							
+									the_textView.setText(((Question)quizMaster.getCurrentGameScreen()).getQuestion());
+									
+									bto1.setText(((Question)quizMaster.getCurrentGameScreen()).getChoices()[0].getCtext());
+									bto2.setText(((Question)quizMaster.getCurrentGameScreen()).getChoices()[1].getCtext());
+									bto3.setText(((Question)quizMaster.getCurrentGameScreen()).getChoices()[2].getCtext());
+									bto4.setText(((Question)quizMaster.getCurrentGameScreen()).getChoices()[3].getCtext());
+									
 									break;
 									
 								case GameScreen.TYPE_MC5:
@@ -302,7 +327,7 @@ public class BeforeInterviewActivity extends Activity {
 								    the5.setText(""+quizMaster.getJobFromJoblist().getCareerLevel());
 								    
 								    TextView the6 = (TextView) findViewById(R.id.head6);
-								    the6.setText("$ "+quizMaster.getJobFromJoblist().getSalary() +" per year");
+								    the6.setText("$ "+quizMaster.getJobFromJoblist().getSalary() +"  per year");
 								    
 								    
 								    TextView the7 = (TextView) findViewById(R.id.head7);

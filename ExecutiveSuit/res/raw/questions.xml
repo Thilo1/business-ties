@@ -209,4 +209,64 @@
         <level>2</level>
         <number>1</number>
     </question>
+    
+    <question>
+        <qtext>A maintenance man, Felix, chastises you for repairing a photocopier. He threatens to have you fired. The next day, Beth, the Executive Vice President's secretary, asks you to fix the machine again.
+Do you...</qtext>
+        <choice>
+            <ctext>Politely say no.</ctext>
+            <story>bla</story>
+            <rank>2</rank>
+            <memory></memory>
+        </choice>
+        <choice>
+            <ctext>Fix it...</ctext>
+            <story>Felix reorts you to his supervisor, Barney Stone. Barney admires the quality of your repair work and vows to keep you in mind for an operations job. </story>
+            <rank>1</rank>
+            <memory></memory>
+        </choice>
+        <choice>
+            <ctext>Explain your situation to Beth.</ctext>
+            <story>bla</story>
+            <rank>3</rank>
+            <memory></memory>
+        </choice>
+        <choice>
+            <ctext>Ask for written permission.</ctext>
+            <story>bla</story>
+            <rank>4</rank>
+            <memory></memory>
+        </choice>
+        <hint/>
+        <typeid>4</typeid>
+        <level>2</level>
+        <number>2</number>
+    </question>
+    
+    <question>
+        <qtext>As another favor to Beth, you stay late to do some photocopying. Pursuing your copying, you discover an opening in the Marketing Department.
+Do you...</qtext>
+        <choice>
+            <ctext>Apply for the job.</ctext>
+            <story>Your initiative and aggressiveness, plus a strong recommendation from Beth, do no harm at all. You are a serious contender.</story>
+            <rank>1</rank>
+            <memory>your aggressive, go getter approach</memory>
+        </choice>
+        <choice>
+            <ctext>Wait a week to apply.</ctext>
+            <story>bla</story>
+            <rank>2</rank>
+            <memory></memory>
+        </choice>
+        <choice>
+            <ctext>Decide to go to the movies.</ctext>
+            <story>bla</story>
+            <rank>3</rank>
+            <memory></memory>
+        </choice>
+        <hint/>
+        <typeid>3</typeid>
+        <level>2</level>
+        <number>3</number>
+    </question>
 </game>
