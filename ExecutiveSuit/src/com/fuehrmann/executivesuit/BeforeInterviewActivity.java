@@ -17,8 +17,10 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 
 import android.widget.TextView;
 
@@ -267,8 +269,8 @@ public class BeforeInterviewActivity extends Activity {
 									
 							   case GameScreen.PERFORMANCE_REVIEW_SCREEN:
 								    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Performance Review Screen ");
-								    setContentView(R.layout.performance_review);
-								    text = String.format(quizMaster.getCurrentGameScreen().getTextViewText(), QuizMaster.ECONOMY_STATE_STRING) ;
+								    setContentView(R.layout.performance_review); System.out.println("pn "+ QuizMaster.PLAYER_NAME); System.out.println("es "+ QuizMaster.ECONOMY_STATE_STRING);
+								    text = String.format(quizMaster.getCurrentGameScreen().getTextViewText(), QuizMaster.PLAYER_NAME, QuizMaster.ECONOMY_STATE_STRING) ;
 								    ArrayList<Job> jobs = quizMaster.getJobOpportunities();
 								    
 								    bto1 = (Button) findViewById(R.id.button_job1);
@@ -341,21 +343,40 @@ public class BeforeInterviewActivity extends Activity {
 								    
 									break;
 									
-									/* TODO grob der code
+									
 							   case GameScreen.REMEMBERED_FOR_SCREEN:
-								   	setContentView(R.layout.remembered_for);
-								   	ListView listView = (ListView) findViewById(R.id.memories);
-									ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.remembered_for,R.id.remembered_for_textview);
+								   	
+								   setContentView(R.layout.dummy_with_textview);
+								   	text = String.format(quizMaster.getCurrentGameScreen().getTextViewText(), QuizMaster.PLAYER_NAME, quizMaster.getMyJob().getJobDesc(),QuizMaster.IS_GOOD_PLAYER) ;
+								   	
+								   	
+								   	//make and fill adapter
+									ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.dummy_with_textview, R.id.dummy_textview);
 									for(int i = 0 ; i < quizMaster.goodMemories.size(); i++){
 										adapter.add(quizMaster.goodMemories.get(i));
 									}
+									for(int i = 0 ; i < quizMaster.avgMemories.size(); i++){
+										adapter.add(quizMaster.avgMemories.get(i));
+									}
+									for(int i = 0 ; i < quizMaster.badMemories.size(); i++){
+										adapter.add(quizMaster.badMemories.get(i));
+									}
+									
+									setContentView(R.layout.remembered_for);
+									
+									//set adapter
+									ListView listView = (ListView) findViewById(R.id.memories);
 									if (listView != null){
 										
 										listView.setAdapter(adapter);
 										System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<ADAPTER SET.");
 									}
+									
+									
+									the_textView = (TextView) findViewById(R.id.remembered_for_textview);
+						    		the_textView.setText(text);
 									break;
-									*/
+									
     	}
     }
 }

@@ -67,17 +67,45 @@ public class QuestionParser {
 				System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> JobDescriptionScreen parsed");
 			}
 			
+			if (name.equals("RememberedForScreen")){
+				entries.add(readRememberedForScreen(parser));
+				System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> RememberedForScreen parsed");
+			}
 			
 			// ende mod
 			
 			if(!name.equals("question") && !name.equals("SingleTextViewScreen") && !name.equals("EconomyScreen")
-					&& !name.equals("PerformanceReviewScreen") && !name.equals("CongratulationsScreen")
-					&& !name.equals("JobDescriptionScreen")) {
+					&& !name.equals("PerformanceReviewScreen") && !name.equals("CongratulationsScreen") 
+					&& !name.equals("JobDescriptionScreen")&& !name.equals("RememberedForScreen")) {
 				System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>> skip...");
 				skip(parser);
 			}
 		}
 		return entries;
+	}
+	
+	private GameScreen readRememberedForScreen(XmlPullParser parser) throws XmlPullParserException, IOException {
+		String textViewText="";
+		
+		parser.require(XmlPullParser.START_TAG, ns, "RememberedForScreen");
+
+		while (parser.next() != XmlPullParser.END_TAG) {
+			
+	        if (parser.getEventType() != XmlPullParser.START_TAG) {
+	            continue;
+	        }
+	        
+	        String name = parser.getName();
+	        
+	        if (name.equals("TextViewText")) {
+	          textViewText = readTextViewText(parser);
+	            
+	        }
+	        else {
+	            skip(parser);
+	        }
+	    }
+		return new RememberedForScreen(textViewText);
 	}
 	
 	private GameScreen readJobDescriptionScreen(XmlPullParser parser) throws XmlPullParserException, IOException {
@@ -150,6 +178,8 @@ String textViewText="";
 	    }
 		return new PerformanceReviewScreen(textViewText);
 	}
+	
+	
 
 	private EconomyScreen readEconomyScreen(XmlPullParser parser) throws XmlPullParserException, IOException {
 		String textViewText="";
@@ -210,6 +240,7 @@ String textViewText="";
 	    Choice[] choices = new Choice[6];
 	    int numberOfChoices = 0;
 	    String   hint = null;
+	    String job = null;
 	    
 	    int typeid=-1;
 	    int level=-1;
@@ -241,12 +272,16 @@ String textViewText="";
 	            
 	        } else if (name.equals("number")) {
 	            number = readNumber(parser);
+	         
+	        }     else if (name.equals("job")) {
+		            job = readJob(parser);  
+		        
 	            
 	        } else {
 	            skip(parser);
 	        }
 	    }
-	    return new Question(question, choices, hint, typeid, level, number);
+	    return new Question(question, choices, hint, typeid, level, number,job);
 	}
 	
 	private int readNumber(XmlPullParser parser) throws IOException, XmlPullParserException {
@@ -269,7 +304,23 @@ String textViewText="";
 	    parser.require(XmlPullParser.END_TAG, ns, "typeid");
 	    return typeid;
 	}
+	
+	// Processes summary tags in the feed.
+		private String readHint(XmlPullParser parser) throws IOException, XmlPullParserException {
+		    parser.require(XmlPullParser.START_TAG, ns, "hint");
+		    String hint = readText(parser);
+		    parser.require(XmlPullParser.END_TAG, ns, "hint");
+		    return hint;
+		}
 
+		// Processes summary tags in the feed.
+		private String readJob(XmlPullParser parser) throws IOException, XmlPullParserException {
+		    parser.require(XmlPullParser.START_TAG, ns, "job");
+		    String job = readText(parser);
+		    parser.require(XmlPullParser.END_TAG, ns, "job");
+		    return job;
+		}
+		
 	// Processes qtext tags in the feed.
 	private String readQtext(XmlPullParser parser) throws IOException, XmlPullParserException {
 	    parser.require(XmlPullParser.START_TAG, ns, "qtext");
@@ -325,13 +376,7 @@ String textViewText="";
 	    return new Choice(ctext,story,rank, memory);
 	}
 	
-	// Processes summary tags in the feed.
-	private String readHint(XmlPullParser parser) throws IOException, XmlPullParserException {
-	    parser.require(XmlPullParser.START_TAG, ns, "hint");
-	    String hint = readText(parser);
-	    parser.require(XmlPullParser.END_TAG, ns, "hint");
-	    return hint;
-	}
+	
 	
 	// For the tags title and summary, extracts their text values.
 	private String readText(XmlPullParser parser) throws IOException, XmlPullParserException {
@@ -372,6 +417,7 @@ String textViewText="";
 	    public static final int PERFORMANCE_REVIEW_SCREEN = 8;
 	    public static final int CONGRATULATIONS_SCREEN = 9;
 	    public static final int JOB_DESCRIPTION_SCREEN = 10;
+	    public static final int REMEMBERED_FOR_SCREEN = 11;
 	    
 	    public static final int GOOD = 1;
 	    public static final int AVG  = 2;
@@ -399,6 +445,7 @@ String textViewText="";
 	    private String   hint;
 	    private int      level;
 		private int      number;
+		private String   job;
 		
 		
 		public String getQuestion() {
@@ -433,13 +480,22 @@ String textViewText="";
 			return number;
 		}
 
-		public Question(String question, Choice[] choices, String hint, int typeid, int level, int number){
+		public String getJob() {
+			return job;
+		}
+
+		public void setJob(String job) {
+			this.job = job;
+		}
+
+		public Question(String question, Choice[] choices, String hint, int typeid, int level, int number, String job){
 			this.question = question;
 			this.choices  = choices;
 			this.hint = hint;
 			this.typeid = typeid;
 			this.level = level;
 			this.number = number;
+			this.job = job;
 		}
 	}
 	
@@ -501,7 +557,7 @@ String textViewText="";
 		
 	}
 	
-public class CongratulationsScreen extends GameScreen{
+    public class CongratulationsScreen extends GameScreen{
 		
 		public CongratulationsScreen(String tvt){
 			typeid = CONGRATULATIONS_SCREEN;
@@ -516,5 +572,13 @@ public class CongratulationsScreen extends GameScreen{
 			typeid = JOB_DESCRIPTION_SCREEN;
 			textViewText = tvt;
 		}	
-	}	
+	}
+	
+    public class RememberedForScreen extends GameScreen{
+		
+		public RememberedForScreen(String tvt){
+			typeid = REMEMBERED_FOR_SCREEN;
+			textViewText = tvt;
+		}	
+	}
 }

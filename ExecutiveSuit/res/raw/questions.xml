@@ -4,7 +4,7 @@
         <qtext>It\'s good to see you made it. Please take a seat and make yourself comfortable. Do you want some coffee? Yes? Ok then. I want to ask you some questions to your personal backround. What is your name?</qtext>
         <choice>
             <ctext/>
-            <story>That's a nice name.</story>
+            <story>That's a nice name .</story>
             <rank>0</rank>
             <memory/>
         </choice>
@@ -12,6 +12,7 @@
         <typeid>1</typeid>
         <level>0</level>
         <number>1</number>
+        <job>interview</job>
     </question>
     <question>
         <qtext>What kind of qualification do you have?</qtext>
@@ -49,6 +50,7 @@
         <typeid>5</typeid>
         <level>0</level>
         <number>2</number>
+        <job>interview</job>
     </question>
     <question>
         <qtext>What was your main field?</qtext>
@@ -86,6 +88,7 @@
         <typeid>5</typeid>
         <level>0</level>
         <number>3</number>
+        <job>interview</job>
     </question>
     <question>
         <qtext>What did you do at the side?</qtext>
@@ -123,6 +126,7 @@
         <typeid>5</typeid>
         <level>0</level>
         <number>4</number>
+        <job>interview</job>
     </question>
     <question>
         <qtext>What was the most important thing to you during this time?</qtext>
@@ -160,6 +164,7 @@
         <typeid>5</typeid>
         <level>0</level>
         <number>5</number>
+        <job>interview</job>
     </question>
     
     <SingleTextViewScreen>
@@ -173,7 +178,7 @@
     </EconomyScreen>
     
     <PerformanceReviewScreen>
-        <TextViewText>The economy is %1$s at the moment. Given this economy and your background, you may apply for the following entry level positions.</TextViewText>
+        <TextViewText>%1$s, the economy is %2$s at the moment. Given this economy and your background, you may apply for the following entry level positions.</TextViewText>
     </PerformanceReviewScreen>
     
     <CongratulationsScreen>
@@ -208,8 +213,8 @@
         <typeid>3</typeid>
         <level>2</level>
         <number>1</number>
-    </question>
-    
+        <job>General Helper - Mailroom</job>
+    </question>  
     <question>
         <qtext>A maintenance man, Felix, chastises you for repairing a photocopier. He threatens to have you fired. The next day, Beth, the Executive Vice President's secretary, asks you to fix the machine again.
 Do you...</qtext>
@@ -241,8 +246,8 @@ Do you...</qtext>
         <typeid>4</typeid>
         <level>2</level>
         <number>2</number>
-    </question>
-    
+        <job>General Helper - Mailroom</job>
+    </question> 
     <question>
         <qtext>As another favor to Beth, you stay late to do some photocopying. Pursuing your copying, you discover an opening in the Marketing Department.
 Do you...</qtext>
@@ -268,5 +273,159 @@ Do you...</qtext>
         <typeid>3</typeid>
         <level>2</level>
         <number>3</number>
+        <job>General Helper - Mailroom</job>
     </question>
+    
+    
+    
+    
+    
+    <question>
+        <qtext>A policy of using limited lighting makes clean-up
+impossible for the night maintenance crew.
+Do you...</qtext>
+        <choice>
+            <ctext>Turn lights on.</ctext>
+            <story>Your initiative and aggressiveness, plus a strong recommendation from Beth, do no harm at all. You are a serious contender.</story>
+            <rank>3</rank>
+            <memory>your aggressive, go getter approach</memory>
+        </choice>
+        <choice>
+            <ctext>Ignore complaints.</ctext>
+            <story>bla</story>
+            <rank>2</rank>
+            <memory>Fucking with every fuckable chick</memory>
+        </choice>
+        <choice>
+            <ctext>Complain to supervisor.</ctext>
+            <story>bla</story>
+            <rank>1</rank>
+            <memory>Fucking with every fuckable chick</memory>
+        </choice>
+        <hint/>
+        <typeid>3</typeid>
+        <level>2</level>
+        <number>3</number>
+        <job>Maintenance Personnel</job>
+    </question>
+    <question>
+        <qtext>You overhear a complaint about the sloppy
+appearance of maintenance people, and deduce that
+neatness will help you advance.
+Do you...</qtext>
+        <choice>
+            <ctext>Send uniforms to cleaners.</ctext>
+            <story>Your initiative and aggressiveness, plus a strong recommendation from Beth, do no harm at all. You are a serious contender.</story>
+            <rank>1</rank>
+            <memory>your aggressive, go getter approach</memory>
+        </choice>
+        <choice>
+            <ctext>Buy an iron.</ctext>
+            <story>bla</story>
+            <rank>2</rank>
+            <memory>Fucking with every fuckable chick</memory>
+        </choice>
+        <choice>
+            <ctext>Assume an attitude of rumpled chic.</ctext>
+            <story>bla</story>
+            <rank>3</rank>
+            <memory>Fucking with every fuckable chick</memory>
+        </choice>
+        <hint/>
+        <typeid>3</typeid>
+        <level>2</level>
+        <number>3</number>
+        <job>Maintenance Personnel</job>
+    </question>
+    <question>
+        <qtext>You discover a leak in the roof on a rainy night
+when water drips into your eye.
+The water is also dripping onto half-completed and
+very expensive circuit boards.
+The first thing you do is...</qtext>
+        <choice>
+            <ctext>Cover the boards</ctext>
+            <story>Your initiative and aggressiveness, plus a strong recommendation from Beth, do no harm at all. You are a serious contender.</story>
+            <rank>1</rank>
+            <memory>your aggressive, go getter approach</memory>
+        </choice>
+        <choice>
+            <ctext>Call your supervisor.</ctext>
+            <story>bla</story>
+            <rank>2</rank>
+            <memory>Fucking with every fuckable chick</memory>
+        </choice>
+        <choice>
+            <ctext>A Sun Dance.</ctext>
+            <story>bla</story>
+            <rank>3</rank>
+            <memory>Fucking with every fuckable chick</memory>
+        </choice>
+        <choice>
+            <ctext>Move the boards.</ctext>
+            <story>bla</story>
+            <rank>3</rank>
+            <memory>Fucking with every fuckable chick</memory>
+        </choice>
+        <hint/>
+        <typeid>4</typeid>
+        <level>2</level>
+        <number>3</number>
+        <job>Maintenance Personnel</job>
+    </question>
+    
+    <RememberedForScreen>
+        <TextViewText>%1$s, you have been in the %2$s position for one year. It's time for a job review. 
+            Overall you did a %3$s job. You will be remembered for: </TextViewText>
+    </RememberedForScreen>
+    
+    <EconomyScreen>
+        <TextViewText>You are ready for a job change. The economy is %1$s at the moment.</TextViewText>
+        <Image></Image>
+        <Button></Button>
+    </EconomyScreen>
+    
+    <PerformanceReviewScreen>
+        <TextViewText>Based on your %1$s performance in your prior position, background and the %2$s economy you may apply for: </TextViewText>
+    </PerformanceReviewScreen>
+    
+    <CongratulationsScreen>
+        <TextViewText>Congratulations, %1$s! You have the job of %2$s. The Following came in your morning email.</TextViewText>
+    </CongratulationsScreen>
+    
+    <JobDescriptionScreen>
+        <TextViewText>Employee Status Change Form. Nerdy Computer Systems Corporation.</TextViewText>
+    </JobDescriptionScreen>   
+    
+    
+    
+    
+    <question>
+        <qtext>Bernard, a driver in your carpool, is late four days in a row during a crucial period of the mm III Microcomputer launch.
+You resolve to...</qtext>
+        <choice>
+            <ctext>Get out of the carpool.</ctext>
+            <story>bla</story>
+            <rank>1</rank>
+            <memory></memory>
+        </choice>
+        <choice>
+            <ctext>Give Bernard a new alarm clock.</ctext>
+            <story>bla</story>
+            <rank>3</rank>
+            <memory></memory>
+        </choice>
+        <choice>
+            <ctext>Continue arriving late.</ctext>
+            <story>bla</story>
+            <rank>2</rank>
+            <memory></memory>
+        </choice>
+        <hint/>
+        <typeid>3</typeid>
+        <level>2</level>
+        <number>1</number>
+        <job>Sales Trainee</job>
+    </question>
+    
 </game>

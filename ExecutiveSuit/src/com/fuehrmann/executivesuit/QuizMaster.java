@@ -30,6 +30,7 @@ public class QuizMaster {
 	public static int ECONOMY_STATE = 0;
 	public static String ECONOMY_STATE_STRING = "";
 	
+	public Job myJob;
 	public static boolean JOB_IS_GRANTED=false;
 	
 	public GameScreen currentGameScreen;
@@ -60,13 +61,15 @@ public class QuizMaster {
 		if (question.equals(((Question)gameScreenList.get(0)).getQuestion())) {
 			PLAYER_NAME=input;
 		}
+		
 		log();
+		
+		// ckecken, ob ein Job ausgewählt wurde
 		for (int i=0;i<jobList.size();i++){
 			if (jobList.get(i).jobDesc.equals(answer)) {
 				jobFromJoblist = jobList.get(i); 
 				System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> job: " + jobFromJoblist.jobDesc);
 				assessment();
-				
 			}
 		}
 		
@@ -92,10 +95,38 @@ public class QuizMaster {
 		else if(!(answer.equals(CONTINUE_BUTTON) && input.equals(EMPTY_STRING))){
 			evaluateAnswer(question,answer,input);
 		}
-
-		GAME_SCREEN_COUNTER++;
-		currentGameScreen = gameScreenList.get(GAME_SCREEN_COUNTER);
 		
+		
+		
+			
+			
+			
+			
+			// wenn job granted, dann kommen jetzt die Fragen zu diesem Job
+		
+			if(JOB_IS_GRANTED){
+				
+				for (int i = 0; i < gameScreenList.size(); i++){
+					
+					if (gameScreenList.get(i) instanceof Question){
+						
+						System.out.println("myJob: " + myJob.jobDesc);
+						if (((Question)gameScreenList.get(i)).getJob().equals(myJob.jobDesc)){
+						
+							currentGameScreen = gameScreenList.get(i);
+							GAME_SCREEN_COUNTER = i;
+							break;
+						}						
+					}
+				}
+
+			JOB_IS_GRANTED=false;
+			return;
+			
+		}
+			// WEnn keine Jobauswahl getroffen wurde, dann nächste Frage
+			GAME_SCREEN_COUNTER++;
+			currentGameScreen = gameScreenList.get(GAME_SCREEN_COUNTER);
 	}
 	
 	private void assessment() {
@@ -114,9 +145,11 @@ public class QuizMaster {
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> tempScore: " + tempScore);
 		if (tempScore >= jobFromJoblist.getMinScore()){
 			JOB_IS_GRANTED = true;
+			myJob = jobFromJoblist;
 		}
 		else{
 			JOB_IS_GRANTED = false;
+			myJob = null;
 		}
 	}
 
@@ -173,6 +206,10 @@ public class QuizMaster {
 		return story;
 	}
 	
+	public Job getMyJob() {
+		return myJob;
+	}
+
 	public ArrayList<Job> getJobOpportunities(){
 		
 		ArrayList<Job> jobs = new ArrayList<Job>();
@@ -199,35 +236,44 @@ public class QuizMaster {
 		story = EMPTY_STRING;
 		jobList = new ArrayList<Job>();
 		
-		String[] arr = {"1 Week Vacation","Own Desk","Working Telephone", "NCSC Key-Chain"};
+		String[] arr = {"1 Week Vacation","Own Desk","Working Telephone", "NCSC  Key-Chain"};
 		
-		jobList.add(new Job("Chief Executive Officer", 120,12,1000000,arr));
-		jobList.add(new Job("Chief Financial Officer", 100,11,500000,arr));
-		jobList.add(new Job("Senior Software Architect", 70,7,200000,arr));
+		// Level 6 Jobs
+		jobList.add(new Job("Chief Executive Officer", 120,6,1000000,arr));
+		jobList.add(new Job("Chief Financial Officer", 100,6,500000,arr));
+		jobList.add(new Job("Chief Technical Architect", 70,6,200000,arr));
+		jobList.add(new Job("Marketing Research Supervisor", 50,6,50000,arr));
 		
-		jobList.add(new Job("Assistant Product Manager", 50,4,100000,arr));
-		jobList.add(new Job("Software Engineer", 50,4,50000,arr));
-		jobList.add(new Job("Production Foreman", 50,4,50000,arr));
-		jobList.add(new Job("Accounting Supervisor", 50,4,50000,arr));
-		jobList.add(new Job("Marketing Assistant", 50,4,50000,arr));
+		// Level 5 Jobs
+		jobList.add(new Job("Assistant Product Manager", 50,5,100000,arr));
+		jobList.add(new Job("Technical Architect", 50,5,50000,arr));
+		jobList.add(new Job("Production Foreman", 50,5,50000,arr));
+		jobList.add(new Job("Account Manager", 50,5,50000,arr));
+		jobList.add(new Job("Senior Marketing Clerk", 45,5,50000,arr));
 		
-		jobList.add(new Job("Senior Accounting Clerk", 40,3,50000,arr));
-		jobList.add(new Job("Salesman", 40,3,50000,arr));
-		jobList.add(new Job("Skilled Assembler", 40,3,50000,arr));
-		jobList.add(new Job("Sales Assistant", 40,3,50000,arr));
-		jobList.add(new Job("Accounts Receivable Clerk", 40,3,50000,arr));
+		// Level 4 Jobs
+		jobList.add(new Job("Programmer", 40,4,50000,arr));
+		jobList.add(new Job("Enterprise Help Desk - Supervisor", 40,4,50000,arr));
+		jobList.add(new Job("Shift Leader - Assembling", 40,4,50000,arr));
+		jobList.add(new Job("Analyst", 40,4,50000,arr));
+		jobList.add(new Job("Marketing Assistant", 40,4,50000,arr));
 		
-		jobList.add(new Job("Customer Service Clerk", 30,2,50000,arr));
-		jobList.add(new Job("Assembler Trainee", 30,2,50000,arr));
-		jobList.add(new Job("Sales Trainee", 30,2,50000,arr));
-		jobList.add(new Job("Accounting Trainee", 30,2,50000,arr));
-		jobList.add(new Job("Call Center Clerk", 30,2,50000,arr));
+		// Level 3 Jobs
+		jobList.add(new Job("Skilled Assembler", 30,3,50000,arr));
+		jobList.add(new Job("Controlling Trainee", 30,3,50000,arr));
+		jobList.add(new Job("Engineering Trainee", 30,3,50000,arr));
+		jobList.add(new Job("Enterprise Help Desk - Agent", 30,3,50000,arr));
 		
+		// Level 2 jobs
+		jobList.add(new Job("General Helper - Office", -30,2,50000,arr));
+		jobList.add(new Job("Programming Trainee", -30,2,50000,arr));
+		jobList.add(new Job("Assembler Trainee ", -30,2,50000,arr));
+		jobList.add(new Job("Sales Trainee", -100,2,50000,arr));
 		
-		jobList.add(new Job("Maintenance Personnel", 20,1,50000,arr));
+		// Level 1 jobs
 		
-		jobList.add(new Job("Copy Clerk", -100,0,50000,arr));
-		jobList.add(new Job("General Helper", -100,0,50000,arr));
+		jobList.add(new Job("Maintenance Personnel", -100,1,50000,arr));
+		jobList.add(new Job("General Helper - Mailroom", -100,1,50000,arr));
 	}
 
 	public void start(){

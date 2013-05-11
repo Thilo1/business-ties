@@ -1,26 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
-    
-    <TextView android:layout_width="fill_parent"
-        	  android:layout_height="0dp"
-        	  android:layout_weight="6"
-        	  android:id="@+id/remembered_for_textview"        		
-        	  android:textSize="18sp"
-        	  android:textStyle="bold"
-        	  android:typeface="serif"
-        	  android:gravity="center"
-        	  android:textColor="@color/WhiteSmoke"/>
+    android:baselineAligned="false"
+    style="@style/LayoutStyle" >  
     
     
-    <ListView android:layout_width="match_parent"
-        	  android:layout_height="0dp"
-        	  android:layout_weight="3"
-        	  android:id="@+id/memories"></ListView>
-    
+    <TextView style="@style/TextViewStyle"
+              android:textIsSelectable="false"
+        	  android:id="@+id/remembered_for_textview" />
 
-    
-    
+		<ListView style="@style/ListViewStyle"
+        	  android:id="@+id/memories"/>
+
+
+	<Button style="@style/ButtonFont"
+	   
+             android:id="@+id/button_continue"
+        	 android:text="@string/button_continue"
+        	 android:onClick="answer"/>
+
 </LinearLayout>

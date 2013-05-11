@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/LayoutStyle"
+    android:id="@+id/dummy_with_textview">
+
+    <TextView style="@style/CodeFont"
+       android:textIsSelectable="false"
+        	  android:id="@+id/dummy_textview"
+        	   />
+
+  
+</LinearLayout>

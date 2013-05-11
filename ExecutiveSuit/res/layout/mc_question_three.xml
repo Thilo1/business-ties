@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="@string/background_color"
+    style="@style/LayoutStyle"
     android:id="@+id/mcthree">
     
     <TextView style="@style/CodeFont"
               android:textIsSelectable="false"
-        	  android:id="@+id/question"
-        		/>
+        	  android:id="@+id/question"/>
     
     <Button style="@style/ButtonFont"
         	android:id="@+id/answer1"
