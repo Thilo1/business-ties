@@ -365,7 +365,7 @@ The first thing you do is...</qtext>
             <ctext>Move the boards.</ctext>
             <story>bla</story>
             <rank>3</rank>
-            <memory>Fucking with every fuckable chick</memory>
+            <memory>Fucking with every fuckable chick!</memory>
         </choice>
         <hint/>
         <typeid>4</typeid>
@@ -385,9 +385,10 @@ The first thing you do is...</qtext>
         <Button></Button>
     </EconomyScreen>
     
-    <PerformanceReviewScreen>
+
+    <JobOptionsScreen>
         <TextViewText>Based on your %1$s performance in your prior position, background and the %2$s economy you may apply for: </TextViewText>
-    </PerformanceReviewScreen>
+    </JobOptionsScreen>
     
     <CongratulationsScreen>
         <TextViewText>Congratulations, %1$s! You have the job of %2$s. The Following came in your morning email.</TextViewText>

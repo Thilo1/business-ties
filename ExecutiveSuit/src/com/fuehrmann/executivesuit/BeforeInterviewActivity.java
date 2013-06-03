@@ -186,7 +186,7 @@ public class BeforeInterviewActivity extends Activity {
     	}
     	
     	//Wenn ein Game Screen dran ist
-    	System.out.println(">>>>>>>>>>>><<<>>>>>>>>>>>>>>>>  GAME_SCREEN: " + quizMaster.getCurrentGameScreen().getTypeid());
+    	System.out.println(">>>>>>>>>>>><<<>>>>>>>>>>>>>>>>  GAME_SCREEN:  " + quizMaster.getCurrentGameScreen().getTypeid());
 		switch (quizMaster.getCurrentGameScreen().getTypeid()){
 		
 								case GameScreen.TYPE_INPUT:
@@ -291,6 +291,31 @@ public class BeforeInterviewActivity extends Activity {
 						    		the_textView.setText(text);
 						    		
 									break;
+									
+							   case GameScreen.JOB_OPTIONS_SCREEN:
+								    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Job Options Screen ");
+								    setContentView(R.layout.job_options_screen); System.out.println("pn "+ QuizMaster.PLAYER_NAME); System.out.println("es "+ QuizMaster.ECONOMY_STATE_STRING);
+								    text = String.format(quizMaster.getCurrentGameScreen().getTextViewText(), QuizMaster.IS_GOOD_PLAYER, QuizMaster.ECONOMY_STATE_STRING) ;
+								    ArrayList<Job> jobs1 = quizMaster.getJobOpportunities();
+								    
+								    bto1 = (Button) findViewById(R.id.button_job1);
+									bto2 = (Button) findViewById(R.id.button_job2);
+									bto3 = (Button) findViewById(R.id.button_job3);
+									bto4 = (Button) findViewById(R.id.button_job4);
+									bto5 = (Button) findViewById(R.id.button_job5);
+									bto6 = (Button) findViewById(R.id.button_job6);
+								    
+									bto1.setText(jobs1.get(0).getJobDesc());
+									bto2.setText(jobs1.get(1).getJobDesc());
+									bto3.setText(jobs1.get(2).getJobDesc());
+									bto4.setText(jobs1.get(3).getJobDesc());
+									bto5.setText(jobs1.get(4).getJobDesc());
+									bto6.setText(jobs1.get(5).getJobDesc());
+									
+								    the_textView = (TextView) findViewById(R.id.kopf);
+						    		the_textView.setText(text);
+						    		
+									break;	
 								
 							   case GameScreen.CONGRATULATIONS_SCREEN:
 								    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CONGRATS SCREEN");

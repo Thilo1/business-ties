@@ -43,6 +43,12 @@ public class QuestionParser {
 			}
 			
 			// mod
+			
+			if (name.equals("JobOptionsScreen")){
+				entries.add(readJobOptionsScreen(parser));
+				System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> JobOptionsScreen parsed");
+			}
+			
 			if (name.equals("SingleTextViewScreen")){
 				entries.add(readSingleTextViewScreen(parser));
 				System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> SingleTextViewScreen parsed");
@@ -76,12 +82,36 @@ public class QuestionParser {
 			
 			if(!name.equals("question") && !name.equals("SingleTextViewScreen") && !name.equals("EconomyScreen")
 					&& !name.equals("PerformanceReviewScreen") && !name.equals("CongratulationsScreen") 
-					&& !name.equals("JobDescriptionScreen")&& !name.equals("RememberedForScreen")) {
+					&& !name.equals("JobDescriptionScreen")&& !name.equals("RememberedForScreen") && !name.equals("JobOptionsScreen")) {
 				System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>> skip...");
 				skip(parser);
 			}
 		}
 		return entries;
+	}
+	
+	private GameScreen readJobOptionsScreen(XmlPullParser parser) throws XmlPullParserException, IOException {
+		String textViewText="";
+		
+		parser.require(XmlPullParser.START_TAG, ns, "JobOptionsScreen");
+
+		while (parser.next() != XmlPullParser.END_TAG) {
+			
+	        if (parser.getEventType() != XmlPullParser.START_TAG) {
+	            continue;
+	        }
+	        
+	        String name = parser.getName();
+	        
+	        if (name.equals("TextViewText")) {
+	          textViewText = readTextViewText(parser);
+	            
+	        }
+	        else {
+	            skip(parser);
+	        }
+	    }
+		return new JobOptionsScreen(textViewText);
 	}
 	
 	private GameScreen readRememberedForScreen(XmlPullParser parser) throws XmlPullParserException, IOException {
@@ -418,6 +448,7 @@ String textViewText="";
 	    public static final int CONGRATULATIONS_SCREEN = 9;
 	    public static final int JOB_DESCRIPTION_SCREEN = 10;
 	    public static final int REMEMBERED_FOR_SCREEN = 11;
+	    public static final int JOB_OPTIONS_SCREEN = 12;
 	    
 	    public static final int GOOD = 1;
 	    public static final int AVG  = 2;
@@ -534,6 +565,15 @@ String textViewText="";
 
 		public SingleTextViewScreen(String tvt){
 			typeid = SINGLE_TEXT_VIEW_SCREEN;
+			textViewText = tvt;
+		}
+		
+	}
+	
+	public class JobOptionsScreen extends GameScreen{
+
+		public JobOptionsScreen(String tvt){
+			typeid = JOB_OPTIONS_SCREEN;
 			textViewText = tvt;
 		}
 		
