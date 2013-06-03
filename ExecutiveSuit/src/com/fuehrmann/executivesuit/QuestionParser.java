@@ -208,8 +208,6 @@ String textViewText="";
 	    }
 		return new PerformanceReviewScreen(textViewText);
 	}
-	
-	
 
 	private EconomyScreen readEconomyScreen(XmlPullParser parser) throws XmlPullParserException, IOException {
 		String textViewText="";

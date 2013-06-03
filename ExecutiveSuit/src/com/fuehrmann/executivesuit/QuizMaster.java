@@ -30,6 +30,11 @@ public class QuizMaster {
 	public static int ECONOMY_STATE = 0;
 	public static String ECONOMY_STATE_STRING = "";
 	
+	public static int GOOD_ANSWERS_IN_THIS_LEVEL_COUNTER=0;
+	public static int AVG_ANSWERS_IN_THIS_LEVEL_COUNTER=0;
+	public static int BAD_ANSWERS_IN_THIS_LEVEL_COUNTER=0;
+	
+	
 	public Job myJob;
 	public static boolean JOB_IS_GRANTED=false;
 	
@@ -44,13 +49,7 @@ public class QuizMaster {
 	public List<Job> jobList;
 	public Job jobFromJoblist = null;
 	
-	public Job getJobFromJoblist() {
-		return jobFromJoblist;
-	}
-
-	public void setJobFromJoblist(Job jobFromJoblist) {
-		this.jobFromJoblist = jobFromJoblist;
-	}
+	
     
 	public void update(String question, String answer, String input){
 		System.out.println("GAME SCREEN COUNTER " + GAME_SCREEN_COUNTER);
@@ -74,10 +73,7 @@ public class QuizMaster {
 		}
 		
 		setWetherPlayerIsGoodOrNot();
-		
-		
-		
-		
+
 		// Wenn der continue Button gedrŸckt wurde die Story reset
 		if (answer.equals(CONTINUE_BUTTON) && input.equals(EMPTY_STRING) && !story.equals(EMPTY_STRING)){
 			story=EMPTY_STRING;
@@ -95,13 +91,7 @@ public class QuizMaster {
 		else if(!(answer.equals(CONTINUE_BUTTON) && input.equals(EMPTY_STRING))){
 			evaluateAnswer(question,answer,input);
 		}
-		
-		
-		
-			
-			
-			
-			
+
 			// wenn job granted, dann kommen jetzt die Fragen zu diesem Job
 		
 			if(JOB_IS_GRANTED){
@@ -146,6 +136,9 @@ public class QuizMaster {
 		if (tempScore >= jobFromJoblist.getMinScore()){
 			JOB_IS_GRANTED = true;
 			myJob = jobFromJoblist;
+			GOOD_ANSWERS_IN_THIS_LEVEL_COUNTER=0;
+			AVG_ANSWERS_IN_THIS_LEVEL_COUNTER=0;
+			BAD_ANSWERS_IN_THIS_LEVEL_COUNTER=0;
 		}
 		else{
 			JOB_IS_GRANTED = false;
@@ -180,6 +173,7 @@ public class QuizMaster {
 				goodMemories.add(memory);
 			}
 			SCORE += TEN_POINTS;
+			GOOD_ANSWERS_IN_THIS_LEVEL_COUNTER++;
 		}
 		
 		if (rank==Question.AVG ) {
@@ -187,6 +181,7 @@ public class QuizMaster {
 				avgMemories.add(memory);
 			}
 			SCORE += FIVE_POINTS;
+			AVG_ANSWERS_IN_THIS_LEVEL_COUNTER++;
 		}
 		
 		if (rank==Question.BAD ) {
@@ -194,40 +189,12 @@ public class QuizMaster {
 			 badMemories.add(memory);
 		 }
 			SCORE -= TEN_POINTS;
+			BAD_ANSWERS_IN_THIS_LEVEL_COUNTER++;
 		}
 		
 	}
 	
-	public GameScreen getCurrentGameScreen() {
-		return  currentGameScreen;
-	}
-	
-	public String getStory() {
-		return story;
-	}
-	
-	public Job getMyJob() {
-		return myJob;
-	}
 
-	public ArrayList<Job> getJobOpportunities(){
-		
-		ArrayList<Job> jobs = new ArrayList<Job>();
-		
-		for(int i = 0; i < jobList.size(); i++ ){
-			
-		if (jobList.get(i).minScore <= SCORE + TEN_POINTS){
-			
-			jobs.add(jobList.get(i));
-			System.out.println("added: "+jobList.get(i).getJobDesc());
-			if(jobs.size()==6) return jobs;
-		}
-			
-		}
-
-		return jobs;
-	}
-	
 	public QuizMaster(List<GameScreen> questionsList){
 		gameScreenList = questionsList;
 		goodMemories = new ArrayList<String>();
@@ -302,7 +269,52 @@ public class QuizMaster {
 		}
 		else IS_GOOD_PLAYER = false;
 	}
+	public GameScreen getCurrentGameScreen() {
+		return  currentGameScreen;
+	}
+	
+	public String getStory() {
+		return story;
+	}
+	
+	public Job getMyJob() {
+		return myJob;
+	}
 
+	public Job getJobFromJoblist() {
+		return jobFromJoblist;
+	}
+
+	public void setJobFromJoblist(Job jobFromJoblist) {
+		this.jobFromJoblist = jobFromJoblist;
+	}
+	
+	public ArrayList<Job> getJobOpportunities(){
+		
+		ArrayList<Job> jobs = new ArrayList<Job>();
+		
+		for(int i = 0; i < jobList.size(); i++ ){
+			
+		if (jobList.get(i).minScore <= SCORE + TEN_POINTS){
+			
+			jobs.add(jobList.get(i));
+			System.out.println("added: "+jobList.get(i).getJobDesc());
+			if(jobs.size()==6) return jobs;
+		}
+			
+		}
+		return jobs;
+	}
+	
+	public String getLevelPerformance(){
+		
+		if(GOOD_ANSWERS_IN_THIS_LEVEL_COUNTER > BAD_ANSWERS_IN_THIS_LEVEL_COUNTER && GOOD_ANSWERS_IN_THIS_LEVEL_COUNTER > AVG_ANSWERS_IN_THIS_LEVEL_COUNTER) return "good";
+		if(AVG_ANSWERS_IN_THIS_LEVEL_COUNTER > BAD_ANSWERS_IN_THIS_LEVEL_COUNTER && AVG_ANSWERS_IN_THIS_LEVEL_COUNTER > GOOD_ANSWERS_IN_THIS_LEVEL_COUNTER) return "average";
+		if(BAD_ANSWERS_IN_THIS_LEVEL_COUNTER > GOOD_ANSWERS_IN_THIS_LEVEL_COUNTER && BAD_ANSWERS_IN_THIS_LEVEL_COUNTER > AVG_ANSWERS_IN_THIS_LEVEL_COUNTER) return "bad";
+		if(BAD_ANSWERS_IN_THIS_LEVEL_COUNTER == GOOD_ANSWERS_IN_THIS_LEVEL_COUNTER && BAD_ANSWERS_IN_THIS_LEVEL_COUNTER == AVG_ANSWERS_IN_THIS_LEVEL_COUNTER) return "average";
+		return QuizMaster.EMPTY_STRING;
+	}
+	
 	public class Job{
 		
 		private String jobDesc;

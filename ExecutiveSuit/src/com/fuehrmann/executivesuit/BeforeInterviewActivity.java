@@ -294,6 +294,13 @@ public class BeforeInterviewActivity extends Activity {
 									
 							   case GameScreen.JOB_OPTIONS_SCREEN:
 								    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Job Options Screen ");
+								    String jobPerformance = QuizMaster.EMPTY_STRING;
+								    if(QuizMaster.IS_GOOD_PLAYER){
+								    	jobPerformance="good";
+								    }else {
+								    	jobPerformance = "bad";
+								    }
+								    
 								    setContentView(R.layout.job_options_screen); System.out.println("pn "+ QuizMaster.PLAYER_NAME); System.out.println("es "+ QuizMaster.ECONOMY_STATE_STRING);
 								    text = String.format(quizMaster.getCurrentGameScreen().getTextViewText(), QuizMaster.IS_GOOD_PLAYER, QuizMaster.ECONOMY_STATE_STRING) ;
 								    ArrayList<Job> jobs1 = quizMaster.getJobOpportunities();

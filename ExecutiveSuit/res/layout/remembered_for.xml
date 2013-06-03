@@ -3,7 +3,6 @@
     android:baselineAligned="false"
     style="@style/LayoutStyle" >  
     
-    
     <TextView style="@style/TextViewStyle"
               android:textIsSelectable="false"
         	  android:id="@+id/remembered_for_textview" />
@@ -11,9 +10,7 @@
 		<ListView style="@style/ListViewStyle"
         	  android:id="@+id/memories"/>
 
-
 	<Button style="@style/ButtonFont"
-	   
              android:id="@+id/button_continue"
         	 android:text="@string/button_continue"
         	 android:onClick="answer"/>
