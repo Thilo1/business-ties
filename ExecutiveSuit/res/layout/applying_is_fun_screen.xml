@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:baselineAligned="false"
+    style="@style/LayoutStyle" >  
+    
+    <TextView style="@style/TextViewStyle"
+              android:textIsSelectable="false"
+        	  android:id="@+id/applying_is_fun_textview" />
+
+    <TextView style="@style/TextViewStyle"
+              android:textIsSelectable="false"
+        	  android:id="@+id/fortunatly_textview" />
+    
+		<ListView style="@style/ListViewStyle"
+        	  android:id="@+id/alltime_fortunatly_list"/>
+		
+	<TextView style="@style/TextViewStyle"
+              android:textIsSelectable="false"
+        	  android:id="@+id/unfortunatly_textview" />
+		
+		<ListView style="@style/ListViewStyle"
+        	  android:id="@+id/alltime_unfortunatly_list"/>
+
+	<Button style="@style/ButtonFont"
+             android:id="@+id/button_continue"
+        	 android:text="@string/button_continue"
+        	 android:onClick="answer"/>
+
+</LinearLayout>

@@ -34,7 +34,6 @@ public class QuizMaster {
 	public static int AVG_ANSWERS_IN_THIS_LEVEL_COUNTER=0;
 	public static int BAD_ANSWERS_IN_THIS_LEVEL_COUNTER=0;
 	
-	
 	public Job myJob;
 	public static boolean JOB_IS_GRANTED=false;
 	
@@ -46,15 +45,17 @@ public class QuizMaster {
 	public List<String> avgMemories;
 	public List<String> badMemories;
 	
+	public List<String> badLevelMemories;
+	public List<String> avgLevelMemories;
+	public List<String> goodLevelMemories;
+	
 	public List<Job> jobList;
 	public Job jobFromJoblist = null;
-	
-	
-    
+
 	public void update(String question, String answer, String input){
 		System.out.println("GAME SCREEN COUNTER " + GAME_SCREEN_COUNTER);
-		System.out.println("Parameters in update in QUIZMASTER, answer: " + answer);
 		System.out.println("Parameters in update in QUIZMASTER, question:  " + question);
+		System.out.println("Parameters in update in QUIZMASTER, answer: " + answer);
 		System.out.println("Parameters in update in QUIZMASTER, input: " + input);
 		
 		if (question.equals(((Question)gameScreenList.get(0)).getQuestion())) {
@@ -93,7 +94,7 @@ public class QuizMaster {
 		}
 
 			// wenn job granted, dann kommen jetzt die Fragen zu diesem Job
-		
+			// vorher noch congrats und employee status change form
 			if(JOB_IS_GRANTED){
 				
 				for (int i = 0; i < gameScreenList.size(); i++){
@@ -103,8 +104,16 @@ public class QuizMaster {
 						System.out.println("myJob: " + myJob.jobDesc);
 						if (((Question)gameScreenList.get(i)).getJob().equals(myJob.jobDesc)){
 						
-							currentGameScreen = gameScreenList.get(i);
-							GAME_SCREEN_COUNTER = i;
+							//Beim ersten mal nach dem interview nur -2 weil danach der applying_is_fun screen nicht kommt, jaaa schšn magic...
+							if (GAME_SCREEN_COUNTER==7){
+								currentGameScreen = gameScreenList.get(i-2);
+								GAME_SCREEN_COUNTER = i-2;
+							}
+							else{
+								currentGameScreen = gameScreenList.get(i-3);
+								GAME_SCREEN_COUNTER = i-3;
+							}
+							
 							break;
 						}						
 					}
@@ -130,17 +139,26 @@ public class QuizMaster {
 		
 		if (ECONOMY_STATE == ECONOMY_SHRINKING) tempScore -= FIVE_POINTS;
 		if (ECONOMY_STATE == ECONOMY_EXPANDING) tempScore += FIVE_POINTS;
-	
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> job: " + jobFromJoblist.jobDesc);
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> tempScore: " + tempScore);
+		
 		if (tempScore >= jobFromJoblist.getMinScore()){
+			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> job: " + jobFromJoblist.jobDesc);
+			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> tempScore: " + tempScore);
+			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> MinScore: " + jobFromJoblist.getMinScore());
+			System.out.println("GRANTED");
 			JOB_IS_GRANTED = true;
 			myJob = jobFromJoblist;
 			GOOD_ANSWERS_IN_THIS_LEVEL_COUNTER=0;
 			AVG_ANSWERS_IN_THIS_LEVEL_COUNTER=0;
 			BAD_ANSWERS_IN_THIS_LEVEL_COUNTER=0;
+			
+			goodLevelMemories = new ArrayList<String>();
+			avgLevelMemories = new ArrayList<String>();
+			badLevelMemories = new ArrayList<String>();
 		}
 		else{
+			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> job: " + jobFromJoblist.jobDesc);
+			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> tempScore: " + tempScore);
+			System.out.println("NOT GRANTED");
 			JOB_IS_GRANTED = false;
 			myJob = null;
 		}
@@ -171,6 +189,7 @@ public class QuizMaster {
 		if (rank==Question.GOOD) {
 			if(!memory.equals(EMPTY_STRING)) {
 				goodMemories.add(memory);
+				 goodLevelMemories.add(memory);
 			}
 			SCORE += TEN_POINTS;
 			GOOD_ANSWERS_IN_THIS_LEVEL_COUNTER++;
@@ -179,7 +198,8 @@ public class QuizMaster {
 		if (rank==Question.AVG ) {
 			if(!memory.equals(EMPTY_STRING)) {
 				avgMemories.add(memory);
-			}
+				avgLevelMemories.add(memory);
+				}
 			SCORE += FIVE_POINTS;
 			AVG_ANSWERS_IN_THIS_LEVEL_COUNTER++;
 		}
@@ -187,9 +207,10 @@ public class QuizMaster {
 		if (rank==Question.BAD ) {
 		 if(!memory.equals(EMPTY_STRING)) {
 			 badMemories.add(memory);
+			 badLevelMemories.add(memory);
 		 }
 			SCORE -= TEN_POINTS;
-			BAD_ANSWERS_IN_THIS_LEVEL_COUNTER++;
+			BAD_ANSWERS_IN_THIS_LEVEL_COUNTER++;	
 		}
 		
 	}
@@ -197,9 +218,15 @@ public class QuizMaster {
 
 	public QuizMaster(List<GameScreen> questionsList){
 		gameScreenList = questionsList;
+		
 		goodMemories = new ArrayList<String>();
 		avgMemories = new ArrayList<String>();
 		badMemories = new ArrayList<String>();
+		
+		goodLevelMemories = new ArrayList<String>();
+		avgLevelMemories = new ArrayList<String>();
+		badLevelMemories = new ArrayList<String>();
+		
 		story = EMPTY_STRING;
 		jobList = new ArrayList<Job>();
 		

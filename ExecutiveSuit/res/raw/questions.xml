@@ -4,7 +4,7 @@
         <qtext>It\'s good to see you made it. Please take a seat and make yourself comfortable. Do you want some coffee? Yes? Ok then. I want to ask you some questions to your personal backround. What is your name?</qtext>
         <choice>
             <ctext/>
-            <story>That's a nice name .</story>
+            <story>That's a nice name.</story>
             <rank>0</rank>
             <memory/>
         </choice>
@@ -29,7 +29,7 @@
             <memory>state</memory>
         </choice>
         <choice>
-            <ctext>Apprenticeship.</ctext>
+            <ctext>Apprenticeship .</ctext>
             <story>This lets me think that you're a pratical type of person. The Nerdy Computer Systems Corporation likes this.</story>
             <rank>2</rank>
             <memory>apprentice</memory>
@@ -99,7 +99,7 @@
             <memory>sportevents</memory>
         </choice>
         <choice>
-            <ctext>I wrote software for a multinational company.</ctext>
+            <ctext>I wrote software for a  multinational company.</ctext>
             <story>This is impressive and shows that you dont waste your time.</story>
             <rank>1</rank>
             <memory>software</memory>
@@ -181,6 +181,16 @@
         <TextViewText>%1$s, the economy is %2$s at the moment. Given this economy and your background, you may apply for the following entry level positions.</TextViewText>
     </PerformanceReviewScreen>
     
+    
+    
+    <!-- Interview Ende, Starte Spiel -->
+    
+    
+    
+    <ApplyingIsFunScreen>
+        <TextViewText>Applying for a new NCSC Position is fun, but you never know what will be recalled from your past.</TextViewText>
+    </ApplyingIsFunScreen>
+    
     <CongratulationsScreen>
         <TextViewText>Congratulations, %1$s! You have the job of %2$s. The Following came in your morning email.</TextViewText>
     </CongratulationsScreen>
@@ -201,7 +211,7 @@
             <ctext>Take the bottle and “improve” the punch bowl....</ctext>
             <story>The party gets a little out of hand. Everybody´s having a great time. Your colleague thinks you´re a cool guy. On the next morning, you can´t remember much, but you see the pictures on facebook.</story>
             <rank>2</rank>
-            <memory>...good relations with other staff members</memory>
+            <memory>...good relations with other staff members.</memory>
         </choice>
         <choice>
             <ctext>Reject to take the bottle.</ctext>
@@ -220,7 +230,7 @@
 Do you...</qtext>
         <choice>
             <ctext>Politely say no.</ctext>
-            <story>bla</story>
+            <story>blablzbv</story>
             <rank>2</rank>
             <memory></memory>
         </choice>
@@ -276,9 +286,40 @@ Do you...</qtext>
         <job>General Helper - Mailroom</job>
     </question>
     
+    <RememberedForScreen>
+        <TextViewText>%1$s, you have been in the %2$s position for one year. It's time for a job review. 
+            Overall you did a %3$s job. You will be remembered for: </TextViewText>
+    </RememberedForScreen>
+    
+    <EconomyScreen>
+        <TextViewText>You are ready for a job change. The economy is %1$s at the moment.</TextViewText>
+        <Image></Image>
+        <Button></Button>
+    </EconomyScreen>
+    
+    <JobOptionsScreen>
+        <TextViewText>Based on your %1$s performance in your prior position,  background and the %2$s economy you may apply for: </TextViewText>
+    </JobOptionsScreen>
+
     
     
     
+    
+    
+    
+    
+    
+    <ApplyingIsFunScreen>
+        <TextViewText>Applying for a new NCSC Position is fun, but you never know what will be recalled from your past.</TextViewText>
+    </ApplyingIsFunScreen>
+    
+    <CongratulationsScreen>
+        <TextViewText>Congratulations, %1$s! You have the job of %2$s. The Following came in your morning email.</TextViewText>
+    </CongratulationsScreen>
+    
+    <JobDescriptionScreen>
+        <TextViewText>Employee Status Change Form. Nerdy Computer Systems Corporation.</TextViewText>
+    </JobDescriptionScreen>
     
     <question>
         <qtext>A policy of using limited lighting makes clean-up
@@ -288,19 +329,19 @@ Do you...</qtext>
             <ctext>Turn lights on.</ctext>
             <story>Your initiative and aggressiveness, plus a strong recommendation from Beth, do no harm at all. You are a serious contender.</story>
             <rank>3</rank>
-            <memory>your aggressive, go getter approach</memory>
+            <memory>your aggressive, go getter approach1</memory>
         </choice>
         <choice>
             <ctext>Ignore complaints.</ctext>
             <story>bla</story>
             <rank>2</rank>
-            <memory>Fucking with every fuckable chick</memory>
+            <memory>sadfick1</memory>
         </choice>
         <choice>
             <ctext>Complain to supervisor.</ctext>
             <story>bla</story>
             <rank>1</rank>
-            <memory>Fucking with every fuckable chick</memory>
+            <memory>asdfk1</memory>
         </choice>
         <hint/>
         <typeid>3</typeid>
@@ -323,13 +364,13 @@ Do you...</qtext>
             <ctext>Buy an iron.</ctext>
             <story>bla</story>
             <rank>2</rank>
-            <memory>Fucking with every fuckable chick</memory>
+            <memory>adsfr1</memory>
         </choice>
         <choice>
             <ctext>Assume an attitude of rumpled chic.</ctext>
             <story>bla</story>
             <rank>3</rank>
-            <memory>Fucking with every fuckable chick</memory>
+            <memory>asdf1</memory>
         </choice>
         <hint/>
         <typeid>3</typeid>
@@ -353,19 +394,19 @@ The first thing you do is...</qtext>
             <ctext>Call your supervisor.</ctext>
             <story>bla</story>
             <rank>2</rank>
-            <memory>Fucking with every fuckable chick</memory>
+            <memory>fef1</memory>
         </choice>
         <choice>
             <ctext>A Sun Dance.</ctext>
             <story>bla</story>
             <rank>3</rank>
-            <memory>Fucking with every fuckable chick</memory>
+            <memory>ghj1</memory>
         </choice>
         <choice>
             <ctext>Move the boards.</ctext>
             <story>bla</story>
             <rank>3</rank>
-            <memory>Fucking with every fuckable chick!</memory>
+            <memory>blub1</memory>
         </choice>
         <hint/>
         <typeid>4</typeid>
@@ -373,7 +414,7 @@ The first thing you do is...</qtext>
         <number>3</number>
         <job>Maintenance Personnel</job>
     </question>
-    
+
     <RememberedForScreen>
         <TextViewText>%1$s, you have been in the %2$s position for one year. It's time for a job review. 
             Overall you did a %3$s job. You will be remembered for: </TextViewText>
@@ -385,10 +426,20 @@ The first thing you do is...</qtext>
         <Button></Button>
     </EconomyScreen>
     
-
     <JobOptionsScreen>
         <TextViewText>Based on your %1$s performance in your prior position, background and the %2$s economy you may apply for: </TextViewText>
     </JobOptionsScreen>
+    
+    
+    
+    
+    
+    
+    
+    
+    <ApplyingIsFunScreen>
+        <TextViewText>Applying for a new NCSC Position is fun, but you never know what will be recalled from your past.</TextViewText>
+    </ApplyingIsFunScreen>
     
     <CongratulationsScreen>
         <TextViewText>Congratulations, %1$s! You have the job of %2$s. The Following came in your morning email.</TextViewText>
@@ -398,11 +449,8 @@ The first thing you do is...</qtext>
         <TextViewText>Employee Status Change Form. Nerdy Computer Systems Corporation.</TextViewText>
     </JobDescriptionScreen>   
     
-    
-    
-    
     <question>
-        <qtext>Bernard, a driver in your carpool, is late four days in a row during a crucial period of the mm III Microcomputer launch.
+        <qtext>Bernard, a driver in your carpool,  is late four days in a row during a crucial period of the mm III Microcomputer launch.
 You resolve to...</qtext>
         <choice>
             <ctext>Get out of the carpool.</ctext>
@@ -428,5 +476,20 @@ You resolve to...</qtext>
         <number>1</number>
         <job>Sales Trainee</job>
     </question>
+    
+    <RememberedForScreen>
+        <TextViewText>%1$s, you have been in the %2$s position for one year. It's time for a job review. 
+            Overall you did a %3$s job. You will be remembered for: </TextViewText>
+    </RememberedForScreen>
+    
+    <EconomyScreen>
+        <TextViewText>You are ready for a job change. The economy is %1$s at the moment.</TextViewText>
+        <Image></Image>
+        <Button></Button>
+    </EconomyScreen>
+    
+    <JobOptionsScreen>
+        <TextViewText>Based on your %1$s performance in your prior position, background and the %2$s economy you may apply for: </TextViewText>
+    </JobOptionsScreen>
     
 </game>

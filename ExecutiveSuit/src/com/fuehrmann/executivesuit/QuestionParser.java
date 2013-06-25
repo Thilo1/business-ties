@@ -44,6 +44,11 @@ public class QuestionParser {
 			
 			// mod
 			
+			if (name.equals("ApplyingIsFunScreen")){
+				entries.add(readApplyingIsFunScreen(parser));
+				System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ApplyingIsFunScreen parsed");
+			}
+			
 			if (name.equals("JobOptionsScreen")){
 				entries.add(readJobOptionsScreen(parser));
 				System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> JobOptionsScreen parsed");
@@ -82,13 +87,39 @@ public class QuestionParser {
 			
 			if(!name.equals("question") && !name.equals("SingleTextViewScreen") && !name.equals("EconomyScreen")
 					&& !name.equals("PerformanceReviewScreen") && !name.equals("CongratulationsScreen") 
-					&& !name.equals("JobDescriptionScreen")&& !name.equals("RememberedForScreen") && !name.equals("JobOptionsScreen")) {
+					&& !name.equals("JobDescriptionScreen")&& !name.equals("RememberedForScreen") 
+					&& !name.equals("JobOptionsScreen") && !name.equals("ApplyingIsFunScreen")) {
 				System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>> skip...");
 				skip(parser);
 			}
 		}
 		return entries;
 	}
+	
+	private GameScreen readApplyingIsFunScreen(XmlPullParser parser) throws XmlPullParserException, IOException {
+		String textViewText="";
+		
+		parser.require(XmlPullParser.START_TAG, ns, "ApplyingIsFunScreen");
+
+		while (parser.next() != XmlPullParser.END_TAG) {
+			
+	        if (parser.getEventType() != XmlPullParser.START_TAG) {
+	            continue;
+	        }
+	        
+	        String name = parser.getName();
+	        
+	        if (name.equals("TextViewText")) {
+	          textViewText = readTextViewText(parser);
+	            
+	        }
+	        else {
+	            skip(parser);
+	        }
+	    }
+		return new ApplyingIsFunScreen(textViewText);
+	}
+	
 	
 	private GameScreen readJobOptionsScreen(XmlPullParser parser) throws XmlPullParserException, IOException {
 		String textViewText="";
@@ -447,6 +478,7 @@ String textViewText="";
 	    public static final int JOB_DESCRIPTION_SCREEN = 10;
 	    public static final int REMEMBERED_FOR_SCREEN = 11;
 	    public static final int JOB_OPTIONS_SCREEN = 12;
+	    public static final int APPLYING_IS_FUN_SCREEN = 13;
 	    
 	    public static final int GOOD = 1;
 	    public static final int AVG  = 2;
@@ -557,6 +589,15 @@ String textViewText="";
 				return memory;
 			}
 		    
+	}
+	
+	
+	public class ApplyingIsFunScreen extends GameScreen{
+
+		public ApplyingIsFunScreen(String tvt){
+			typeid = APPLYING_IS_FUN_SCREEN;
+			textViewText = tvt;
+		}	
 	}
 	
 	public class SingleTextViewScreen extends GameScreen{

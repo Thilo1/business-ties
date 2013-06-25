@@ -302,7 +302,7 @@ public class BeforeInterviewActivity extends Activity {
 								    }
 								    
 								    setContentView(R.layout.job_options_screen); System.out.println("pn "+ QuizMaster.PLAYER_NAME); System.out.println("es "+ QuizMaster.ECONOMY_STATE_STRING);
-								    text = String.format(quizMaster.getCurrentGameScreen().getTextViewText(), QuizMaster.IS_GOOD_PLAYER, QuizMaster.ECONOMY_STATE_STRING) ;
+								    text = String.format(quizMaster.getCurrentGameScreen().getTextViewText(), quizMaster.getLevelPerformance(), QuizMaster.ECONOMY_STATE_STRING) ;
 								    ArrayList<Job> jobs1 = quizMaster.getJobOpportunities();
 								    
 								    bto1 = (Button) findViewById(R.id.button_job1);
@@ -324,18 +324,70 @@ public class BeforeInterviewActivity extends Activity {
 						    		
 									break;	
 								
+							   case GameScreen.APPLYING_IS_FUN_SCREEN:
+								    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Applying is fun Screen");
+								    
+								    setContentView(R.layout.dummy_with_textview);
+								    
+									//make and fill adapter
+						    		//make and fill adapter
+									ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.dummy_with_textview, R.id.dummy_textview);
+									for(int i = 0 ; i < quizMaster.goodMemories.size(); i++){
+										adapter.add(quizMaster.goodMemories.get(i));
+									}
+									
+									
+									
+								    
+									setContentView(R.layout.dummy_with_textview2);
+								
+									ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, R.layout.dummy_with_textview2, R.id.dummy_textview2);
+									for(int i = 0 ; i < quizMaster.badMemories.size(); i++){
+										adapter2.add(quizMaster.badMemories.get(i));
+									}
+		
+									
+									//set adapter
+									setContentView(R.layout.applying_is_fun_screen);
+									
+									ListView listView = (ListView) findViewById(R.id.alltime_fortunatly_list);
+									if (listView != null){
+										
+										listView.setAdapter(adapter);
+										System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ADAPTER1 SET.");
+									}
+
+									ListView listView2 = (ListView) findViewById(R.id.alltime_unfortunatly_list);
+									if (listView2 != null){
+									listView2.setAdapter(adapter2);
+									System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<< ADAPTER2 SET.");
+									}
+									
+									the_textView = (TextView) findViewById(R.id.applying_is_fun_textview);
+								    text = String.format(quizMaster.getCurrentGameScreen().getTextViewText()) ;
+						    		the_textView.setText(text);
+						    		if( quizMaster.myJob != null){
+								    	text = String.format(quizMaster.getCurrentGameScreen().getTextViewText(),QuizMaster.PLAYER_NAME, quizMaster.myJob.getJobDesc()) ;
+								    	System.out.println("Player Name" + QuizMaster.PLAYER_NAME);
+								    }
+									
+									
+									break;
+									
+									
 							   case GameScreen.CONGRATULATIONS_SCREEN:
 								    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CONGRATS SCREEN");
 								    setContentView(R.layout.story_screen);
-								    
-								    if( QuizMaster.JOB_IS_GRANTED){
-								    	text = String.format(quizMaster.getCurrentGameScreen().getTextViewText(),QuizMaster.PLAYER_NAME, quizMaster.getJobFromJoblist().getJobDesc()) ;
+
+								    if( quizMaster.myJob != null){
+								    	text = String.format(quizMaster.getCurrentGameScreen().getTextViewText(),QuizMaster.PLAYER_NAME, quizMaster.myJob.getJobDesc()) ;
 								    	System.out.println("Player Name" + QuizMaster.PLAYER_NAME);
 								    }
 								    else{
-								    	text = "_Sorry...";
+								    	text = String.format("Unfortunately, %1$s you were edged out by a better qualified candidate." +
+								    			"Apply for another job and develop the skills to advance within ncsc.",QuizMaster.PLAYER_NAME) ;	 
 								    }
-								    
+								    //  Jetzt irgendwie auf die Auswahlmöhlichkeiten zurück...
 								    
 								    the_textView = (TextView) findViewById(R.id.question_name);
 						    		the_textView.setText(text);
@@ -379,29 +431,29 @@ public class BeforeInterviewActivity extends Activity {
 							   case GameScreen.REMEMBERED_FOR_SCREEN:
 								   	
 								   setContentView(R.layout.dummy_with_textview);
-								   	text = String.format(quizMaster.getCurrentGameScreen().getTextViewText(), QuizMaster.PLAYER_NAME, quizMaster.getMyJob().getJobDesc(),QuizMaster.IS_GOOD_PLAYER) ;
+								   	text = String.format(quizMaster.getCurrentGameScreen().getTextViewText(), QuizMaster.PLAYER_NAME, quizMaster.getMyJob().getJobDesc(),quizMaster.getLevelPerformance()) ;
 								   	
 								   	
 								   	//make and fill adapter
-									ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.dummy_with_textview, R.id.dummy_textview);
-									for(int i = 0 ; i < quizMaster.goodMemories.size(); i++){
-										adapter.add(quizMaster.goodMemories.get(i));
+									ArrayAdapter<String> adapter4 = new ArrayAdapter<String>(this, R.layout.dummy_with_textview, R.id.dummy_textview);
+									for(int i = 0 ; i < quizMaster.goodLevelMemories.size(); i++){
+										adapter4.add(quizMaster.goodLevelMemories.get(i));
 									}
-									for(int i = 0 ; i < quizMaster.avgMemories.size(); i++){
-										adapter.add(quizMaster.avgMemories.get(i));
+									for(int i = 0 ; i < quizMaster.avgLevelMemories.size(); i++){
+										adapter4.add(quizMaster.avgLevelMemories.get(i));
 									}
-									for(int i = 0 ; i < quizMaster.badMemories.size(); i++){
-										adapter.add(quizMaster.badMemories.get(i));
+									for(int i = 0 ; i < quizMaster.badLevelMemories.size(); i++){
+										adapter4.add(quizMaster.badLevelMemories.get(i));
 									}
 									
 									setContentView(R.layout.remembered_for);
 									
 									//set adapter
-									ListView listView = (ListView) findViewById(R.id.memories);
-									if (listView != null){
+									ListView listView3 = (ListView) findViewById(R.id.memories);
+									if (listView3 != null){
 										
-										listView.setAdapter(adapter);
-										System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<ADAPTER SET.");
+										listView3.setAdapter(adapter4);
+										System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<< ADAPTER SET.");
 									}
 									
 									
