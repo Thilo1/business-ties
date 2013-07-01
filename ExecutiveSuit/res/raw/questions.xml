@@ -215,7 +215,7 @@
         </choice>
         <choice>
             <ctext>Reject to take the bottle.</ctext>
-            <story>Your colleague thinks you´re a boring person. So is tonight´s event..</story>
+            <story>Your colleague thinks you´re a boring person. So is tonight´s event...</story>
             <rank>3</rank>
             <memory>...being boring.</memory>
         </choice>

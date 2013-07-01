@@ -186,7 +186,7 @@ public class BeforeInterviewActivity extends Activity {
     	}
     	
     	//Wenn ein Game Screen dran ist
-    	System.out.println(">>>>>>>>>>>><<<>>>>>>>>>>>>>>>>  GAME_SCREEN:  " + quizMaster.getCurrentGameScreen().getTypeid());
+    	System.out.println(">>>>>>>>>>>><<<>>>>>>>>>>>>>>>>GAME_SCREEN:  " + quizMaster.getCurrentGameScreen().getTypeid());
 		switch (quizMaster.getCurrentGameScreen().getTypeid()){
 		
 								case GameScreen.TYPE_INPUT:
@@ -293,7 +293,7 @@ public class BeforeInterviewActivity extends Activity {
 									break;
 									
 							   case GameScreen.JOB_OPTIONS_SCREEN:
-								    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Job Options Screen ");
+								    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> >>>> Job Options Screen ");
 								    String jobPerformance = QuizMaster.EMPTY_STRING;
 								    if(QuizMaster.IS_GOOD_PLAYER){
 								    	jobPerformance="good";
@@ -360,12 +360,15 @@ public class BeforeInterviewActivity extends Activity {
 									ListView listView2 = (ListView) findViewById(R.id.alltime_unfortunatly_list);
 									if (listView2 != null){
 									listView2.setAdapter(adapter2);
-									System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<< ADAPTER2 SET.");
+									System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<ADAPTER2 SET.");
 									}
-									
+									TextView fortunatly = (TextView) findViewById(R.id.fortunatly_textview);
+									TextView unfortunatly = (TextView) findViewById(R.id.unfortunatly_textview);
 									the_textView = (TextView) findViewById(R.id.applying_is_fun_textview);
 								    text = String.format(quizMaster.getCurrentGameScreen().getTextViewText()) ;
 						    		the_textView.setText(text);
+						    		fortunatly.setText("Fortunatly you are remembered for: ");
+						    		unfortunatly.setText("Unfortunatly you are remembered for: ");
 						    		if( quizMaster.myJob != null){
 								    	text = String.format(quizMaster.getCurrentGameScreen().getTextViewText(),QuizMaster.PLAYER_NAME, quizMaster.myJob.getJobDesc()) ;
 								    	System.out.println("Player Name" + QuizMaster.PLAYER_NAME);
@@ -385,9 +388,11 @@ public class BeforeInterviewActivity extends Activity {
 								    }
 								    else{
 								    	text = String.format("Unfortunately, %1$s you were edged out by a better qualified candidate." +
-								    			"Apply for another job and develop the skills to advance within ncsc.",QuizMaster.PLAYER_NAME) ;	 
+								    			"Apply for another job and develop the skills to advance within ncsc.",QuizMaster.PLAYER_NAME) ;
+								    	QuizMaster.edgedOut = true;
+								    	
 								    }
-								    //  Jetzt irgendwie auf die Auswahlmšhlichkeiten zurŸck...
+								    //  Jetzt irgendwie auf die Auswahlmhlichkeiten zurck...
 								    
 								    the_textView = (TextView) findViewById(R.id.question_name);
 						    		the_textView.setText(text);

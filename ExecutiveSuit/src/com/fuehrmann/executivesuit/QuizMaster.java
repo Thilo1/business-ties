@@ -8,6 +8,8 @@ import com.fuehrmann.executivesuit.QuestionParser.Question;
 
 public class QuizMaster {
 
+	public static boolean edgedOut = false;
+	
 	public static final String CONTINUE_BUTTON = "continue";
 	public static final String EMPTY_STRING = "";
 	public static final String ECONOMY_IS_FAIR = "fair";
@@ -62,9 +64,16 @@ public class QuizMaster {
 			PLAYER_NAME=input;
 		}
 		
+		if (edgedOut){
+			GAME_SCREEN_COUNTER-=2;
+			currentGameScreen = gameScreenList.get(GAME_SCREEN_COUNTER);
+			edgedOut=false;
+			return;
+		}
+		
 		log();
 		
-		// ckecken, ob ein Job ausgewählt wurde
+		// ckecken, ob ein Job ausgewhlt wurde
 		for (int i=0;i<jobList.size();i++){
 			if (jobList.get(i).jobDesc.equals(answer)) {
 				jobFromJoblist = jobList.get(i); 
@@ -75,7 +84,7 @@ public class QuizMaster {
 		
 		setWetherPlayerIsGoodOrNot();
 
-		// Wenn der continue Button gedrückt wurde die Story reset
+		// Wenn der continue Button gedrckt wurde die Story reset
 		if (answer.equals(CONTINUE_BUTTON) && input.equals(EMPTY_STRING) && !story.equals(EMPTY_STRING)){
 			story=EMPTY_STRING;
 			
@@ -93,7 +102,7 @@ public class QuizMaster {
 			evaluateAnswer(question,answer,input);
 		}
 
-			// wenn job granted, dann kommen jetzt die Fragen zu diesem Job
+			// Es war eine Job-Auswahl.Wenn job granted, dann kommen jetzt die Fragen zu diesem Job
 			// vorher noch congrats und employee status change form
 			if(JOB_IS_GRANTED){
 				
@@ -104,7 +113,7 @@ public class QuizMaster {
 						System.out.println("myJob: " + myJob.jobDesc);
 						if (((Question)gameScreenList.get(i)).getJob().equals(myJob.jobDesc)){
 						
-							//Beim ersten mal nach dem interview nur -2 weil danach der applying_is_fun screen nicht kommt, jaaa schön magic...
+							//Beim ersten mal nach dem interview nur -2 weil danach der applying_is_fun screen nicht kommt, jaaa schn magic...
 							if (GAME_SCREEN_COUNTER==7){
 								currentGameScreen = gameScreenList.get(i-2);
 								GAME_SCREEN_COUNTER = i-2;
@@ -123,7 +132,7 @@ public class QuizMaster {
 			return;
 			
 		}
-			// WEnn keine Jobauswahl getroffen wurde, dann nächste Frage
+			// WEnn keine Jobauswahl getroffen wurde, dann nchste Frage
 			GAME_SCREEN_COUNTER++;
 			currentGameScreen = gameScreenList.get(GAME_SCREEN_COUNTER);
 	}
@@ -262,7 +271,7 @@ public class QuizMaster {
 		jobList.add(new Job("General Helper - Office", -30,2,50000,arr));
 		jobList.add(new Job("Programming Trainee", -30,2,50000,arr));
 		jobList.add(new Job("Assembler Trainee ", -30,2,50000,arr));
-		jobList.add(new Job("Sales Trainee", -100,2,50000,arr));
+		jobList.add(new Job("Sales Trainee", -30,2,50000,arr));
 		
 		// Level 1 jobs
 		
